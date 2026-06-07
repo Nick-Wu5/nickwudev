@@ -23,18 +23,24 @@ scene.environment = pmrem.fromScene(new RoomEnvironment()).texture;
 document.body.appendChild(renderer.domElement);
 
 // Camera Config
-const fov = 75;
+const fov = 50;
 const aspect = w / h;
 const near = 0.1;
 const far = 5;
 const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
 
-camera.position.z = 2;
+camera.position.set(0, 0.3, 0.8);
+camera.lookAt(0, 0, 0);
 
 // Orbit Controls
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.dampingFactor = 0.03;
+controls.enablePan = false;
+controls.enableZoom = false;
+
+controls.target.set(0, 0, 0);
+controls.update();
 
 // Lighting
 const dirLight = new THREE.DirectionalLight(0xffffff, 2);
@@ -45,6 +51,11 @@ scene.add(dirLight);
 const loader = new GLTFLoader();
 const gltf = await loader.loadAsync("/macbook/mac.glb");
 scene.add(gltf.scene);
+gltf.scene.position.y = -0.1; // tweak this value
+
+// Testing functionality
+console.log(gltf.scene);
+console.log(gltf.animations);
 
 function animate() {
   requestAnimationFrame(animate);
