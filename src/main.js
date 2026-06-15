@@ -2,6 +2,7 @@ import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { GLTFLoader } from "three/examples/jsm/Addons.js";
 import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
+import { texture } from "three/tsl";
 
 // Scene Config
 const scene = new THREE.Scene();
@@ -55,6 +56,28 @@ const gltf = await loader.loadAsync("/macbook/mac.glb");
 scene.add(gltf.scene);
 gltf.scene.position.y = -0.1; // tweak this value
 
+// Loading the stickers
+const textureLoader = new THREE.TextureLoader();
+
+// Load a sticker
+const pacersStickerGeometry = new THREE.PlaneGeometry(0.05, 0.05);
+const pacersStickerTexture = textureLoader.load(
+  "/macbook/stickers/pacersSticker.png",
+);
+pacersStickerTexture.colorSpace = THREE.SRGBColorSpace;
+
+const pacersStickerMaterial = new THREE.MeshBasicMaterial({
+  map: pacersStickerTexture,
+  transparent: true,
+  alphaTest: 0.1,
+});
+const pacersStickerMesh = new THREE.Mesh(
+  pacersStickerGeometry,
+  pacersStickerMaterial,
+);
+
+scene.add(pacersStickerMesh);
+
 // Testing functionality
 console.log(gltf.scene);
 console.log(gltf.animations);
@@ -74,6 +97,9 @@ animate();
 const raycaster = new THREE.Raycaster();
 document.addEventListener("mousedown", onMouseDown);
 
+// Understanding lid rotation
+const lid = gltf.scene.children.find((child) => child.name === "lid_low001");
+
 function onMouseDown(event) {
   const coords = new THREE.Vector2(
     (event.clientX / renderer.domElement.clientWidth) * 2 - 1,
@@ -87,5 +113,16 @@ function onMouseDown(event) {
     const selectedObject = intersections[0].object;
     const color = new THREE.Color("orange");
     selectedObject.material.color = color;
+  }
+}
+
+document.addEventListener("keydown", onSpacebarDown);
+
+function onSpacebarDown(event) {
+  if (event.key === " ") {
+    console.log("position", lid.position);
+    console.log("rotation", lid.rotation);
+    lid.geometry.computeBoundingBox();
+    console.log("geometry box", lid.geometry.boundingBox);
   }
 }
