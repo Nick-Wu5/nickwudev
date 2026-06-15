@@ -75,7 +75,7 @@ const pacersStickerMesh = new THREE.Mesh(
   pacersStickerGeometry,
   pacersStickerMaterial,
 );
-
+pacersStickerMesh.rotation.y = Math.PI;
 scene.add(pacersStickerMesh);
 
 // Testing functionality
