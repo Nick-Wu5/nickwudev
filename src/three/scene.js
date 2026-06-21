@@ -1,12 +1,14 @@
 import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
 
-// Scene Config
+// ================ Scene Config ================
+
 export const scene = new THREE.Scene();
 const color = new THREE.Color().setHex(0xfffbdb);
 scene.background = color;
 
-// Renderer Config
+// Renderer
 export const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -14,7 +16,7 @@ renderer.outputColorSpace = THREE.SRGBColorSpace;
 const pmrem = new THREE.PMREMGenerator(renderer);
 scene.environment = pmrem.fromScene(new RoomEnvironment()).texture;
 
-// Camera Config
+// Camera
 const fov = 50;
 const near = 0.1;
 const far = 5;
@@ -29,3 +31,13 @@ const dirLight = new THREE.DirectionalLight(0xffffff, 2);
 dirLight.position.set(5, 10, 5);
 scene.add(dirLight);
 scene.add(ambLight);
+
+// Controls
+export const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.03;
+controls.enablePan = false;
+controls.enableZoom = false;
+
+controls.target.set(0, 0, 0);
+controls.update();
