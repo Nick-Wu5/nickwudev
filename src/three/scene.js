@@ -5,13 +5,14 @@ import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
 // ================ Scene Config ================
 
 export const scene = new THREE.Scene();
-const color = new THREE.Color().setHex(0xfffbdb);
-scene.background = color;
+// const color = new THREE.Color().setHex(0xfffbdb);
+// scene.background = color;
 
 // Renderer
-export const renderer = new THREE.WebGLRenderer({ antialias: true });
+export const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.setClearAlpha(0);
 
 const pmrem = new THREE.PMREMGenerator(renderer);
 scene.environment = pmrem.fromScene(new RoomEnvironment()).texture;

@@ -1,3 +1,48 @@
 * {
   margin: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Nanum Pen Script";
+  src: url("/fonts/nanum-pen-script.woff2");
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  font-family: "Nanum Pen Script", cursive;
+  background-color: #fcf9f0;
+}
+
+.container {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "title"
+    "model"
+    "callToAction"
+    "footer";
+}
+
+.title {
+  grid-area: title;
+  text-align: center;
+}
+
+.model {
+  grid-area: model;
+}
+
+canvas {
+  inset: 0;
+  z-index: 0;
+}
+
+body > :not(canvas) {
+  position: relative;
+  z-index: 1;
 }

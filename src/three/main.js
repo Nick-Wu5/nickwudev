@@ -8,7 +8,10 @@ const h = window.innerHeight;
 renderer.setSize(w, h);
 camera.aspect = w / h;
 camera.updateProjectionMatrix(); // required after changing aspect — Three.js caches the projection matrix
-document.body.appendChild(renderer.domElement);
+
+// Attach the scene to the model section
+const modelContainer = document.querySelector(".model");
+modelContainer.appendChild(renderer.domElement);
 
 // Macbook
 scene.add(macbook.scene);
