@@ -3,20 +3,35 @@ import { scene, renderer, camera, controls } from "./scene.js";
 import { macbook } from "./macbook.js";
 import { stickers } from "./stickers.js";
 
-const w = window.innerWidth;
-const h = window.innerHeight;
-renderer.setSize(w, h);
-camera.aspect = w / h;
-camera.updateProjectionMatrix(); // required after changing aspect — Three.js caches the projection matrix
-
 // Attach the scene to the model section
 const modelContainer = document.querySelector(".model");
 modelContainer.appendChild(renderer.domElement);
 
+function updateViewport() {
+  const width = modelContainer.clientWidth;
+  const height = modelContainer.clientHeight;
+  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.setSize(width, height, false);
+
+  camera.aspect = width / height;
+  camera.position.set(0, isMobile ? 0.34 : 0.3, isMobile ? 0.35 : 0.8);
+  camera.lookAt(0, 0, 0);
+  camera.updateProjectionMatrix(); // required after changing aspect — Three.js caches the projection matrix
+
+  controls.target.set(0, 0, 0);
+  controls.update();
+}
+
+const resizeObserver = new ResizeObserver(updateViewport);
+resizeObserver.observe(modelContainer);
+window.addEventListener("resize", updateViewport);
+updateViewport();
+
 // Macbook
 scene.add(macbook.scene);
 macbook.scene.position.y = -0.1; // tweak this value
-macbook.scene;
 const lid = macbook.scene.children.find((child) => child.name === "lid_low001");
 
 // Stickers
