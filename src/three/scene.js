@@ -9,7 +9,10 @@ export const scene = new THREE.Scene();
 // scene.background = color;
 
 // Renderer
-export const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+export const renderer = new THREE.WebGLRenderer({
+  antialias: true,
+  alpha: true,
+});
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.setClearAlpha(0);
@@ -39,6 +42,11 @@ controls.enableDamping = true;
 controls.dampingFactor = 0.03;
 controls.enablePan = false;
 controls.enableZoom = false;
+
+controls.minPolarAngle = 1.15;
+controls.maxPolarAngle = 1.45;
+controls.minAzimuthAngle = -Infinity;
+controls.maxAzimuthAngle = Infinity;
 
 controls.target.set(0, 0, 0);
 controls.update();

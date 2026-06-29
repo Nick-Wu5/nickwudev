@@ -16,11 +16,11 @@ function updateViewport() {
   renderer.setSize(width, height, false);
 
   camera.aspect = width / height;
-  camera.position.set(0, isMobile ? 0.34 : 0.3, isMobile ? 0.35 : 0.8);
+  camera.position.set(0, isMobile ? 0.22 : 0.3, isMobile ? 0.55 : 0.8);
   camera.lookAt(0, 0, 0);
   camera.updateProjectionMatrix(); // required after changing aspect — Three.js caches the projection matrix
 
-  controls.target.set(0, 0, 0);
+  controls.target.set(0, 0.025, -0.1);
   controls.update();
 }
 
@@ -32,10 +32,23 @@ updateViewport();
 // Macbook
 scene.add(macbook.scene);
 macbook.scene.position.y = -0.1; // tweak this value
+macbook.scene.scale.setScalar(1.5);
 const lid = macbook.scene.children.find((child) => child.name === "lid_low001");
 
 // Stickers
 lid.add(stickers);
+
+// Debug: marks the orbit/pivot point the camera targets.
+// const pivotMarker = new THREE.Mesh(
+//   new THREE.SphereGeometry(0.01, 16, 16),
+//   new THREE.MeshBasicMaterial({ color: 0xff4d4d }),
+// );
+// pivotMarker.position.copy(controls.target);
+// scene.add(pivotMarker);
+
+// Debug: shows the world axes so you can see orientation in 3D space.
+// const axesHelper = new THREE.AxesHelper(0.25);
+// scene.add(axesHelper);
 
 // Testing functionality
 function animate() {
