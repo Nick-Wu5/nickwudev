@@ -40,12 +40,15 @@ stickerConfigs.forEach((cfg) => {
 // ================ Interactions ================
 
 const raycaster = new THREE.Raycaster();
-document.addEventListener("mousedown", onMouseDown);
+renderer.domElement.addEventListener("pointerdown", onPointerDown);
 
-function onMouseDown(event) {
+const modal = document.querySelector(".modal");
+
+function onPointerDown(event) {
+  const rect = renderer.domElement.getBoundingClientRect();
   const coords = new THREE.Vector2(
-    (event.clientX / renderer.domElement.clientWidth) * 2 - 1,
-    -((event.clientY / renderer.domElement.clientHeight) * 2 - 1),
+    ((event.clientX - rect.left) / rect.width) * 2 - 1,
+    -(((event.clientY - rect.top) / rect.height) * 2 - 1),
   );
 
   raycaster.setFromCamera(coords, camera);
@@ -55,5 +58,8 @@ function onMouseDown(event) {
     const selectedObject = intersections[0].object;
     const color = new THREE.Color("orange");
     selectedObject.material.color = color;
+    modal.style.display = "flex";
+    modal.style.cssText =
+      "animation:slide-in .5s ease; animation-fill-mode: forwards;";
   }
 }
