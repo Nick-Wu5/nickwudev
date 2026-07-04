@@ -101,6 +101,7 @@ body {
   text-align: center;
 }
 
+/* Modal Styling */
 .modal {
   /* display: none; */
   z-index: 2;
@@ -112,10 +113,10 @@ body {
 
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto;
+  /* margin: 15% auto; */
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
+  width: 90%;
 }
 
 .close {
