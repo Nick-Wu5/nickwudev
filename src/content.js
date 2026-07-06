@@ -1,3 +1,5 @@
+import { marked } from "marked";
+
 const modules = import.meta.glob("./content/*.md", {
   query: "?raw",
 });
@@ -15,17 +17,20 @@ const files = [
 ];
 
 const promiseArray = Object.entries(modules).map(([path, loader]) => {
-  return loader().then((mod) => ({ path, content: mod.default }));
+  return loader().then((mod) => ({
+    path,
+    content: marked.parse(mod.default),
+  }));
 });
 
-const filesReady = Promise.all(promiseArray).then((results) => {
+const filesReady = await Promise.all(promiseArray).then((results) => {
   for (const entry of results) {
     const file = files.find((f) => f.path === entry.path);
     file.content = entry.content;
   }
+
+  console.log(files);
   return files;
 });
 
-filesReady.then((res) => {
-  console.log(res);
-});
+export { files };
