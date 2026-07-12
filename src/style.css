@@ -5,6 +5,8 @@
 /* Shared design values for the page layout */
 :root {
   --page-bg: #fcf9f0;
+  --header-bg: #dad1b6;
+  --footer-bg: #dad1b6;
   --model-bg: #fcf9f0;
   --page-max-width: 1200px;
   --page-padding-mobile: 1rem;
@@ -12,7 +14,7 @@
   --grid-gap-mobile: 1rem;
   --grid-gap-desktop-y: 1.5rem;
   --grid-gap-desktop-x: 2rem;
-  --model-min-height-mobile: 320px;
+  --model-min-height-mobile: 400px;
   --model-min-height-desktop: clamp(420px, 65vh, 760px);
 }
 
@@ -89,6 +91,8 @@ body {
 
 .container {
   width: min(100%, var(--page-max-width));
+  /* height: 100vh;
+  height: 100dvh; */
   padding: var(--page-padding-mobile);
   display: grid;
   gap: var(--grid-gap-mobile);
@@ -98,6 +102,7 @@ body {
     "model"
     "callToAction"
     "footer";
+  /* grid-template-rows: 1/8 2/8fr 3/8fr 1/8fr 1/8fr; */
   z-index: 0;
 }
 
@@ -105,7 +110,10 @@ body {
 .header {
   grid-area: header;
   text-align: left;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  height: 100%;
+  width: 100%;
+  background-color: var(--header-bg);
 }
 
 .header p {
@@ -115,7 +123,7 @@ body {
 .title {
   grid-area: title;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 .title span {
@@ -148,6 +156,37 @@ body {
 .footer {
   grid-area: footer;
   text-align: center;
+  background-color: var(--footer-bg);
+}
+
+.footer-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.footer-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  color: #3a3a3a;
+  transition:
+    color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.footer-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.footer-icon:hover,
+.footer-icon:focus-visible {
+  color: #d16b3a;
+  transform: translateY(-2px);
 }
 
 /* Modal Styling */
@@ -227,6 +266,10 @@ body {
   .header,
   .footer {
     text-align: left;
+  }
+
+  .footer-icons {
+    justify-content: flex-start;
   }
 
   .title,
