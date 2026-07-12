@@ -1,29 +1,41 @@
-# Who I Am
+# Me
 
-## Lifestyle
+## What I value
 
-## Hobbies
+Everything I do can be summarized in the pursuit of _building something that lasts_.
+
+Relationships: I'm committed to nuturing my relationships with God, my family and friends, and person in front of me in line
+
+Mindset
+
+Compete always | Be delusionally optimisitc | Finish what I start
+
+## What I like to do
+
+### Building
 
 ### Staying active
 
-Lifting
-
-Pickup soccer and basketball
+My fitness and overall wellness is something super important to me. Whether that means lifting, running, playing sports (soccer, basketabll, pickleball), or trying something new, I love to stay moving.
 
 ### Watching sports
 
-I love to follow the Preimer League and NBA.
+I've been a Tottenham fan since the '16-17 season inspiried by the Kane and Son duo. Anytime I have my airpods in its likely I'm listening to the _Last Word On Spurs_ podcast, a form of therapy at this point. Attending a match in-person one day is definetly a top bucket list item for me.
 
-My team in the prem is Tottenham Hotspur. I started following them around 2016-17 because of Son and Harry Kane, and now am tied to the club whether I enjoy the football or not. Lots of ups and downs espeically the past couple seasons but excited for whats to come. I listen almost every episode of the podcast 'Last Word On Spurs' in my free time to keep me sane. One of my bucket list items is to go to a match in London.
-
-Being raised in Indiana my whole life, I'm a Pacers fan. Some highlights of my fandom include during the Pacers 2024 playoff run, I attended the Eastern Conference Finals game against the Knicks where they won in Gainbridge with my younger brother. Another bittersweet momemnt was attending the game 7 watch party in Gainbridge fieldhouse with friends from my fraternity. An incredible culmination to an insnae run which ended so sadly.
+I'm also a huge Pacers fan. Some core memories include attending the Eastern Conference Finals game against the Knicks when they won in Gainbridge with my younger brother. Another bittersweet moment was attending the Game 7 watch party in Gainbridge Fieldhouse with friends from my fraternity.
 
 ### Reading
 
-My goal is to always be actively reading something. I also try to live by the mindset that I always finish what I start. This idea is constantly strained by the current book I'm on haha. Currently, I'm reading 'Unresonable Hospitality' By: Will Guidara.
+Currently, I’m reading _Unreasonable Hospitality_ by Will Guidara.
 
-### Making videos
+I’m always trying to be more consistent with the habit.
+With so much noise online these days its something that I prioritize.
 
-I always enjoy learning about how to take better photos and videos in my free time. Often this happens during travel or mini trips. Some of my latest stuff.
+Some book recommendations:
 
-## Travel
+- _The Ruthless Elimination Of Hurry_ by John Mark Comer
+- _The 20 Minute Networking Meeting_ by Marcia Ballinger, Nathan A. Perez
+
+### Travel
+
+I love taking any opportunity to explore and fill out new places on the map. Checkout some highlights below!
