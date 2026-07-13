@@ -1,0 +1,35 @@
+@media (min-width: 768px) {
+  .container {
+    padding: var(--page-padding-desktop);
+    gap: var(--grid-gap-desktop-y) var(--grid-gap-desktop-x);
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 560px);
+    grid-template-areas:
+      "header header"
+      "title model"
+      "callToAction model"
+      "footer footer";
+    align-items: center;
+  }
+
+  .header,
+  .footer {
+    text-align: left;
+  }
+
+  .footer-icons {
+    justify-content: flex-start;
+  }
+
+  .title,
+  .callToAction {
+    text-align: left;
+  }
+
+  .title span {
+    display: inline;
+  }
+
+  .model {
+    min-height: var(--model-min-height-desktop);
+  }
+}

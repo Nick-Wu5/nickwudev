@@ -1,0 +1,79 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --page-bg: #fcf9f0;
+  --header-bg: #dad1b6;
+  --footer-bg: #dad1b6;
+  --model-bg: #fcf9f0;
+  --page-max-width: 1200px;
+  --page-padding-mobile: 1rem;
+  --page-padding-desktop: 2rem;
+  --grid-gap-mobile: 1rem;
+  --grid-gap-desktop-y: 1.5rem;
+  --grid-gap-desktop-x: 2rem;
+  --model-min-height-mobile: 400px;
+  --model-min-height-desktop: clamp(420px, 65vh, 760px);
+}
+
+@font-face {
+  font-family: "Nanum Pen Script";
+  src: url("/fonts/nanum-pen-script.woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-Light.woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-LightItalic.woff2");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-Regular.woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-Italic.woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-SemiBold.woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-Bold.woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
