@@ -1,13 +1,21 @@
 import * as THREE from "three";
 import { camera, renderer } from "./scene.js";
 import { openModal } from "../modal.js";
+import { rotate } from "three/tsl";
 
 // ================ Sticker Meshes ================
 
 const textureLoader = new THREE.TextureLoader();
 
 // Functions
-function createSticker(texturePath, position, width, height, contentId) {
+function createSticker(
+  texturePath,
+  position,
+  width,
+  height,
+  contentId,
+  rotation,
+) {
   const texture = textureLoader.load(texturePath);
   texture.colorSpace = THREE.SRGBColorSpace;
 
@@ -19,9 +27,11 @@ function createSticker(texturePath, position, width, height, contentId) {
 
   const mesh = new THREE.Mesh(new THREE.PlaneGeometry(width, height), material);
   mesh.position.set(...position);
+  mesh.rotation.z = rotation;
   mesh.rotation.y = Math.PI;
   mesh.name = name;
   mesh.userData = { contentId: contentId };
+  mesh.rotate;
   return mesh;
 }
 
@@ -33,6 +43,7 @@ const stickerConfigs = [
     width: 0.08,
     height: 0.08,
     contentId: "me",
+    rotation: 0,
   },
   {
     path: "/macbook/stickers/purdueSticker.png",
@@ -40,12 +51,28 @@ const stickerConfigs = [
     width: 0.1,
     height: 0.08,
     contentId: "school",
+    rotation: 0,
+  },
+  {
+    path: "/macbook/stickers/githubSticker.png",
+    position: [-0.0625, 0.165, -0.009],
+    width: 0.105,
+    height: 0.042,
+    contentId: "projects",
+    rotation: -Math.PI / 15,
   },
 ];
 
 stickerConfigs.forEach((cfg) => {
   stickers.add(
-    createSticker(cfg.path, cfg.position, cfg.width, cfg.height, cfg.contentId),
+    createSticker(
+      cfg.path,
+      cfg.position,
+      cfg.width,
+      cfg.height,
+      cfg.contentId,
+      cfg.rotation,
+    ),
   );
 });
 
