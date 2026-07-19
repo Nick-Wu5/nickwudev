@@ -39,9 +39,9 @@ export const stickers = new THREE.Group();
 const stickerConfigs = [
   {
     path: "/macbook/stickers/pacersSticker.png",
-    position: [0.115, 0.18, -0.009],
-    width: 0.08,
-    height: 0.08,
+    position: [0.11, 0.1725, -0.009],
+    width: 0.1,
+    height: 0.1,
     contentId: "me",
     rotation: 0,
   },
@@ -55,11 +55,43 @@ const stickerConfigs = [
   },
   {
     path: "/macbook/stickers/githubSticker.png",
-    position: [-0.0625, 0.165, -0.009],
+    position: [-0.0625, 0.16, -0.009],
     width: 0.105,
     height: 0.042,
     contentId: "projects",
-    rotation: -Math.PI / 15,
+    rotation: -Math.PI / 15.5,
+  },
+  {
+    path: "/macbook/stickers/tottenhamSticker.png",
+    position: [-0.12, 0.155, -0.009],
+    width: 0.11,
+    height: 0.11,
+    contentId: "me",
+    rotation: 0,
+  },
+  {
+    path: "/macbook/stickers/launchpadStickerOld.png",
+    position: [0.118, 0.07, -0.009],
+    width: 0.06,
+    height: 0.06,
+    contentId: "school",
+    rotation: 0,
+  },
+  {
+    path: "/macbook/stickers/launchpadStickerNew.png",
+    position: [-0.12, 0.07, -0.009],
+    width: 0.105,
+    height: 0.105,
+    contentId: "school",
+    rotation: -Math.PI / 12,
+  },
+  {
+    path: "/macbook/stickers/betaSticker.png",
+    position: [0.115, 0.02, -0.009],
+    width: 0.075,
+    height: 0.03525,
+    contentId: "me",
+    rotation: 0,
   },
 ];
 
