@@ -1,90 +1,91 @@
 body {
   font-family: "Nanum Pen Script", cursive;
   background-color: var(--page-bg);
-  display: flex;
   justify-content: center;
   overflow: hidden;
 }
 
 .container {
-  width: min(100%, var(--page-max-width));
+  /* width: min(100%, var(--page-max-width)); */
   padding: var(--page-padding-mobile);
   display: grid;
   gap: var(--grid-gap-mobile);
   grid-template-areas:
     "header"
     "title"
-    "model"
-    "callToAction"
+    "slider"
+    "cards"
     "footer";
+  grid-template-rows: auto auto auto 1fr auto;
+  min-height: 100dvh;
 }
 
-.header {
+.header-section {
   grid-area: header;
   text-align: left;
-  font-size: 1.5rem;
-  height: 100%;
-  width: 100%;
-  background-color: var(--header-bg);
-}
-
-.header p {
+  font-size: 3rem;
+  color: var(--accent-color);
   margin: 0;
 }
 
-.title {
+.title-section {
   grid-area: title;
   text-align: center;
+  padding: 1rem;
+  background-color: blueviolet;
+}
+
+.title-section > h1 {
+  font-size: 2.5rem;
+  font-weight: normal;
+}
+
+.title-section > h2 {
   font-size: 2rem;
+  font-weight: normal;
 }
 
-.title span {
+.slider-section {
+  grid-area: slider;
+  background-color: cornflowerblue;
+  justify-content: center;
+}
+
+.model-section {
+  display: none;
+}
+
+.callToAction-section {
+  display: none;
+}
+
+.cards-section {
+  grid-area: cards;
   display: block;
+  background-color: forestgreen;
 }
 
-.model {
-  grid-area: model;
-  position: relative;
-  overflow: hidden;
-  min-height: var(--model-min-height-mobile);
-  background-color: var(--model-bg);
-  border: 2px dashed #d16b3a;
-}
-
-.model canvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-.callToAction {
-  grid-area: callToAction;
-  text-align: center;
-  font-size: 1.5rem;
-}
-
-.footer {
+.footer-section {
   grid-area: footer;
   display: flex;
-  text-align: center;
   font-size: 1.5rem;
   text-align: left;
-  gap: 1.25rem;
+  height: 1.5rem;
+  gap: 1rem;
+  /* background-color: lawngreen; */
 }
 
-.footer div {
+.footer-section div {
   transition: transform 0.15s ease;
 }
 
 .footer-link:hover,
 .footer-link:focus-visible {
-  color: #d16b3a;
+  color: var(--accent-color);
   transform: translateY(-2px);
 }
 
-.footer a {
+.footer-link a {
   text-decoration: none;
   color: inherit;
 }

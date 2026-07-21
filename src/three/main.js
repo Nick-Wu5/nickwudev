@@ -4,7 +4,7 @@ import { macbook } from "./macbook.js";
 import { stickers } from "./stickers.js";
 
 // Attach the scene to the model section
-const modelContainer = document.querySelector(".model");
+const modelContainer = document.querySelector(".model-section");
 modelContainer.appendChild(renderer.domElement);
 
 function updateViewport() {

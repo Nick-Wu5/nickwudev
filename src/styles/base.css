@@ -4,16 +4,14 @@
 
 :root {
   --page-bg: #fcf9f0;
-  --header-bg: #dad1b6;
-  --footer-bg: #dad1b6;
   --model-bg: #fcf9f0;
+  --accent-color: #fdb827;
   --page-max-width: 1200px;
   --page-padding-mobile: 1rem;
   --page-padding-desktop: 2rem;
   --grid-gap-mobile: 1rem;
   --grid-gap-desktop-y: 1.5rem;
   --grid-gap-desktop-x: 2rem;
-  --model-min-height-mobile: 400px;
   --model-min-height-desktop: clamp(420px, 65vh, 760px);
 }
 
@@ -74,6 +72,10 @@
 html,
 body {
   width: 100%;
-  min-height: 100%;
+  margin: 0;
+}
+
+h1,
+h2 {
   margin: 0;
 }
