@@ -32,7 +32,7 @@ body {
   grid-area: title;
   text-align: center;
   padding: 1rem;
-  background-color: blueviolet;
+  /* background-color: blueviolet; */
 }
 
 .title-section > h1 {
