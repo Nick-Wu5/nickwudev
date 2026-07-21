@@ -13,6 +13,8 @@
   --grid-gap-desktop-y: 1.5rem;
   --grid-gap-desktop-x: 2rem;
   --model-min-height-desktop: clamp(420px, 65vh, 760px);
+  --card-bg: #f0f0f0;
+  --card-text: #070707;
 }
 
 @font-face {

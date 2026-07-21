@@ -61,8 +61,11 @@ body {
 
 .cards-section {
   grid-area: cards;
-  display: block;
-  background-color: forestgreen;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  /* background-color: forestgreen; */
 }
 
 .footer-section {
