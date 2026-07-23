@@ -2,7 +2,6 @@ body {
   font-family: "Nanum Pen Script", cursive;
   background-color: var(--page-bg);
   justify-content: center;
-  overflow: hidden;
 }
 
 .container {
