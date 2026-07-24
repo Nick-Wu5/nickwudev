@@ -18,11 +18,11 @@ export function openModal(contentId) {
 }
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function () {
-  modal.style.display = "none";
-  modal.style.cssText =
-    "animation:slide-out .5s ease; animation-fill-mode: backwards;";
-};
+// span.onclick = function () {
+//   modal.style.display = "none";
+//   modal.style.cssText =
+//     "animation:slide-out .5s ease; animation-fill-mode: backwards;";
+// };
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
