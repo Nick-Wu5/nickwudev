@@ -1,4 +1,5 @@
 .card {
+  display: block;
   transition: transform 0.15s ease;
   width: 90%;
 }
@@ -8,7 +9,7 @@
 }
 
 .card-header {
-  font-size: 1rem;
+  font-size: 1.25rem;
   color: var(--card-text);
 }
 

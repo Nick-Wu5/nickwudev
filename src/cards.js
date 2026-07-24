@@ -4,20 +4,31 @@ const workCards = [
     time: "Summer 2026",
     imgPath: "/src/assets/sepOutside.jpg",
     imgAlt: "SEP Building",
-    pageLink: "/projects/sep.html",
+    pageLink: "/src/content/projects/sep.html",
   },
   {
     title: "OnlyLocalTickets - Freelance Dev",
     time: "Spring 2026",
     imgPath: "/src/assets/embedExample.png",
     imgAlt: "OnlyLocalTickets Embed Example",
-    pageLink: "/projects/onlylocaltickets.html",
+    pageLink: "/src/content/projects/onlylocaltickets.html",
+  },
+];
+
+const playCards = [
+  {
+    title: "Price Is Right",
+    time: "Spring 2026",
+    imgPath: "/src/assets/priceIsRight.png",
+    imgAlt: "Price Is Right Pitch Deck Image",
+    pageLink: "/src/content/projects/priceisright.html",
   },
 ];
 
 function createCard(cardObj) {
-  var card = document.createElement("div");
+  var card = document.createElement("a");
   card.className = "card";
+  card.href = cardObj.pageLink;
   card.innerHTML = `
     <div class="card-header">
         <span class="left-card-header">${cardObj.title}</span>
