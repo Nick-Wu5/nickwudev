@@ -2,6 +2,7 @@
   display: block;
   transition: transform 0.15s ease;
   width: 90%;
+  max-width: 450px;
 }
 
 .card:hover {

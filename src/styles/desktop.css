@@ -49,6 +49,10 @@
     font-size: 1.5rem;
   }
 
+  .cards-section {
+    gap: 4rem;
+  }
+
   .footer-section {
     grid-area: footer;
     background-color: aqua;

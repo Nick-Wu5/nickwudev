@@ -1,6 +1,5 @@
 import * as THREE from "three";
 import { camera, renderer } from "./scene.js";
-import { openModal } from "../modal.js";
 import { rotate } from "three/tsl";
 
 // ================ Sticker Meshes ================
@@ -113,8 +112,6 @@ stickerConfigs.forEach((cfg) => {
 const raycaster = new THREE.Raycaster();
 renderer.domElement.addEventListener("pointerdown", onPointerDown);
 
-const modal = document.querySelector(".modal");
-
 function onPointerDown(event) {
   const rect = renderer.domElement.getBoundingClientRect();
   const coords = new THREE.Vector2(
@@ -126,6 +123,5 @@ function onPointerDown(event) {
   const intersections = raycaster.intersectObjects(stickers.children, true);
   if (intersections.length > 0) {
     const contentId = intersections[0].object.userData.contentId;
-    openModal(contentId);
   }
 }
