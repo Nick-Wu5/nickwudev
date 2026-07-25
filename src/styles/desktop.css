@@ -50,6 +50,7 @@
   }
 
   .cards-section {
+    min-height: var(--model-min-height-desktop);
     gap: 4rem;
   }
 

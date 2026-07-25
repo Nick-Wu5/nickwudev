@@ -12,7 +12,7 @@
   --grid-gap-mobile: 1rem;
   --grid-gap-desktop-y: 1.5rem;
   --grid-gap-desktop-x: 2rem;
-  --model-min-height-desktop: clamp(420px, 65vh, 760px);
+  --model-min-height-desktop: clamp(420px, 65vh, 600px);
   --card-bg: #f0f0f0;
   --card-text: #070707;
 }
@@ -74,7 +74,10 @@
 html,
 body {
   width: 100%;
+  height: 100%;
   margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 h1,

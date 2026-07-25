@@ -1,17 +1,24 @@
 const workCards = [
   {
-    title: "SEP - SWE Intern",
+    title: "SEP - Software Engineering Intern",
     time: "Summer 2026",
     imgPath: "/src/assets/sepOutside.jpg",
     imgAlt: "SEP Building",
     pageLink: "/src/content/projects/sep.html",
   },
   {
-    title: "OnlyLocalTickets - Freelance Dev",
+    title: "OnlyLocalTickets - Fullstack Developer",
     time: "Spring 2026",
     imgPath: "/src/assets/embedExample.png",
     imgAlt: "OnlyLocalTickets Embed Example",
     pageLink: "/src/content/projects/onlylocaltickets.html",
+  },
+  {
+    title: "Corteva Agriscience - Data Engineering Intern",
+    time: "Summer 2025",
+    imgPath: "/src/assets/cortevaLogoBasic.png",
+    imgAlt: "Corteva Logo",
+    pageLink: "/src/content/projects/corteva.html",
   },
 ];
 
