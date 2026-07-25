@@ -10,13 +10,15 @@ modelContainer.appendChild(renderer.domElement);
 function updateViewport() {
   const width = modelContainer.clientWidth;
   const height = modelContainer.clientHeight;
-  const isMobile = window.matchMedia("(max-width: 767px)").matches;
 
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
   renderer.setSize(width, height, false);
 
   camera.aspect = width / height;
-  camera.position.set(0, isMobile ? 0.22 : 0.3, isMobile ? 0.55 : 0.8);
+
+  // TODO: update updateViewport() logic now that model never displays on mobile
+
+  camera.position.set(0, 0.3, 0.6);
   camera.lookAt(0, 0, 0);
   camera.updateProjectionMatrix(); // required after changing aspect — Three.js caches the projection matrix
 
@@ -38,6 +40,8 @@ const lid = macbook.scene.children.find((child) => child.name === "lid_low001");
 // Stickers
 lid.add(stickers);
 
+// Testing functionality
+
 // Debug: marks the orbit/pivot point the camera targets.
 // const pivotMarker = new THREE.Mesh(
 //   new THREE.SphereGeometry(0.01, 16, 16),
@@ -50,13 +54,25 @@ lid.add(stickers);
 // const axesHelper = new THREE.AxesHelper(0.25);
 // scene.add(axesHelper);
 
-// Testing functionality
+// Conditionally render mac only on desktop
+const isMobile = window.matchMedia("(max-width: 767px)");
+let frameId;
+let isRenderingMac = !isMobile.matches;
+
+isMobile.addEventListener("change", (mobile) => {
+  if (mobile.matches && isRenderingMac) {
+    cancelAnimationFrame(frameId);
+    isRenderingMac = false;
+  } else if (!mobile.matches && !isRenderingMac) {
+    frameId = requestAnimationFrame(animate);
+    isRenderingMac = true;
+  }
+});
+
 function animate() {
-  requestAnimationFrame(animate);
-
+  frameId = requestAnimationFrame(animate);
   renderer.render(scene, camera);
-
   controls.update();
 }
 
-animate();
+if (isRenderingMac) animate();
