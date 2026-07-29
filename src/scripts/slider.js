@@ -9,7 +9,7 @@ function moveSliderTo(button) {
 
 buttons.forEach((btn) => {
   btn.addEventListener("click", () => {
-    buttons.forEach((b) => b.classList.remove("acitve"));
+    buttons.forEach((b) => btn.classList.remove("acitve"));
     btn.classList.add("active");
     moveSliderTo(btn);
   });

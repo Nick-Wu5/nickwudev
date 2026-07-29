@@ -10,7 +10,7 @@
       "model model cards"
       "callToAction callToAction cards"
       "footer footer footer";
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 1/3fr 1/3fr 1/3fr;
     align-items: center;
   }
 

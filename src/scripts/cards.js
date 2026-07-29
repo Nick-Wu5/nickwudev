@@ -1,22 +1,28 @@
+import sepImg from "../assets/sepOutside.jpg";
+import embedExampleImg from "../assets/embedExample.png";
+import cortevaLogoBasicImg from "../assets/cortevaLogoBasic.png";
+import priceIsRightImg from "../assets/priceIsRight.png";
+import pacersImg from "../assets/pacersECF.png";
+
 const workCards = [
   {
     title: "SEP - Software Engineering Intern",
     time: "Summer 2026",
-    imgPath: "/src/assets/sepOutside.jpg",
+    imgPath: sepImg,
     imgAlt: "SEP Building",
     pageLink: "/src/content/projects/sep.html",
   },
   {
     title: "OnlyLocalTickets - Fullstack Developer",
     time: "Spring 2026",
-    imgPath: "/src/assets/embedExample.png",
+    imgPath: embedExampleImg,
     imgAlt: "OnlyLocalTickets Embed Example",
     pageLink: "/src/content/projects/onlylocaltickets.html",
   },
   {
     title: "Corteva Agriscience - Data Engineering Intern",
     time: "Summer 2025",
-    imgPath: "/src/assets/cortevaLogoBasic.png",
+    imgPath: cortevaLogoBasicImg,
     imgAlt: "Corteva Logo",
     pageLink: "/src/content/projects/corteva.html",
   },
@@ -26,7 +32,7 @@ const playCards = [
   {
     title: "Price Is Right",
     time: "Spring 2026",
-    imgPath: "/src/assets/priceIsRight.png",
+    imgPath: priceIsRightImg,
     imgAlt: "Price Is Right Pitch Deck Image",
     pageLink: "/src/content/projects/priceisright.html",
   },
@@ -36,9 +42,9 @@ const meCards = [
   {
     title: "Pacers",
     time: "Spring 2026",
-    imgPath: "/src/assets/priceIsRight.png",
-    imgAlt: "Price Is Right Pitch Deck Image",
-    pageLink: "/src/content/projects/priceisright.html",
+    imgPath: pacersImg,
+    imgAlt: "Pacers Image",
+    pageLink: "/src/content/projects/pacers.html",
   },
 ];
 
@@ -53,7 +59,7 @@ function createCard(cardObj) {
     </div>
     <div class="card-content-container">
         <div class="card-image">
-            <img src="${cardObj.imgPath}" alt="${cardObj.imgAlt}" />
+            <img loading="lazy" src="${cardObj.imgPath}" alt="${cardObj.imgAlt}" />
         </div>
     </div>
     `;
