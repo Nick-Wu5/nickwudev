@@ -49,6 +49,14 @@
     font-size: 1.5rem;
   }
 
+  .slider-section {
+    grid-area: slider;
+  }
+
+  .slider-container {
+    padding-block: 0.5rem;
+  }
+
   .cards-section {
     min-height: var(--model-min-height-desktop);
     gap: 4rem;
