@@ -2,7 +2,7 @@ import sepImg from "../assets/sepOutside.jpg";
 import embedExampleImg from "../assets/embedExample.png";
 import cortevaLogoBasicImg from "../assets/cortevaLogoBasic.png";
 import priceIsRightImg from "../assets/priceIsRight.png";
-import pacersImg from "../assets/pacersECF.png";
+import pacersImg from "../assets/pacersECF.jpeg";
 
 const workCards = [
   {
