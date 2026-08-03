@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { camera, renderer } from "./scene.js";
+import { camera, renderer, controls } from "./scene.js";
 import { rotate } from "three/tsl";
 
 // ================ Sticker Meshes ================
@@ -120,8 +120,17 @@ function onPointerDown(event) {
   );
   raycaster.setFromCamera(coords, camera);
 
+  // Pause rotation
+  controls.autoRotate = false;
+  const restartRotation = setTimeout(resumeRotation, 10000);
+
   const intersections = raycaster.intersectObjects(stickers.children, true);
   if (intersections.length > 0) {
     const contentId = intersections[0].object.userData.contentId;
+    console.log(contentId);
   }
+}
+
+function resumeRotation() {
+  controls.autoRotate = true;
 }
