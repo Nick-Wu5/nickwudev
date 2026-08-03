@@ -125,7 +125,7 @@ body {
   font-size: 1.5rem;
   text-align: left;
   height: 1.5rem;
-  gap: 1rem;
+  gap: 1.5rem;
   /* background-color: lawngreen; */
 }
 
@@ -133,13 +133,17 @@ body {
   transition: transform 0.15s ease;
 }
 
-.footer-link:hover,
-.footer-link:focus-visible {
-  color: var(--accent-color);
-  transform: translateY(-2px);
+.footer-link {
+  display: flex;
 }
 
 .footer-link a {
   text-decoration: none;
   color: inherit;
+}
+
+.footer-link:hover,
+.footer-link:focus-visible {
+  color: var(--accent-color);
+  transform: translateY(-2px);
 }
