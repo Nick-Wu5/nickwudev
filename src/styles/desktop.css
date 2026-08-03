@@ -10,19 +10,26 @@
       "model model cards"
       "callToAction callToAction cards"
       "footer footer footer";
-    grid-template-columns: 1/3fr 1/3fr 1/3fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows:
+      auto
+      minmax(0, 1fr)
+      minmax(0, 1fr)
+      minmax(0, 1fr)
+      minmax(0, 1fr)
+      minmax(0, 1fr)
+      auto;
     align-items: center;
   }
 
   .header-section {
     text-align: left;
-    background-color: chocolate;
   }
 
   .title-section {
     grid-area: title;
     text-align: center;
-    background-color: azure;
+    z-index: 1;
   }
 
   .model-section {
@@ -31,8 +38,10 @@
     position: relative;
     overflow: hidden;
     min-height: var(--model-min-height-desktop);
+    min-width: 320px;
     background-color: var(--model-bg);
-    border: 2px dashed #d16b3a;
+    /* border: 2px dashed #d16b3a; */
+    z-index: 0;
   }
 
   .model-section > canvas {
@@ -47,6 +56,7 @@
     display: block;
     text-align: center;
     font-size: 1.5rem;
+    z-index: 1;
   }
 
   .slider-section {
@@ -64,6 +74,5 @@
 
   .footer-section {
     grid-area: footer;
-    background-color: aqua;
   }
 }
