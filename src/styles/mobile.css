@@ -26,6 +26,10 @@ body {
   margin: 0;
 }
 
+.content {
+  display: contents;
+}
+
 .title-section {
   grid-area: title;
   text-align: center;

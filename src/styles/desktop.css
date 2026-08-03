@@ -4,19 +4,10 @@
     gap: var(--grid-gap-desktop-y) var(--grid-gap-desktop-x);
     grid-template-areas:
       "header header header"
-      "title title slider"
-      "model model cards"
-      "model model cards"
-      "model model cards"
-      "callToAction callToAction cards"
+      "content content content"
       "footer footer footer";
-    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows:
       auto
-      minmax(0, 1fr)
-      minmax(0, 1fr)
-      minmax(0, 1fr)
-      minmax(0, 1fr)
       minmax(0, 1fr)
       auto;
     align-items: center;
@@ -24,6 +15,27 @@
 
   .header-section {
     text-align: left;
+  }
+
+  .content {
+    display: grid;
+    grid-area: content;
+    grid-template-areas:
+      "title title title slider slider"
+      "model model model cards cards"
+      "model model model cards cards"
+      "model model model cards cards"
+      "callToAction callToAction callToAction cards cards";
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows:
+      auto
+      minmax(0, 1fr)
+      minmax(0, 1fr)
+      minmax(0, 1fr)
+      auto;
+    padding: var(--page-padding-desktop);
+    width: 90%;
+    justify-self: center;
   }
 
   .title-section {
@@ -69,7 +81,8 @@
 
   .cards-section {
     min-height: var(--model-min-height-desktop);
-    gap: 4rem;
+    margin-top: 2rem;
+    gap: 2rem;
   }
 
   .footer-section {
