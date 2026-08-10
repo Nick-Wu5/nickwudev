@@ -8,7 +8,7 @@ import robBellImg from "../assets/drrobbelltest.jpeg";
 const workCards = [
   {
     title: "SEP - Software Engineering Intern",
-    time: "Summer 2026",
+    time: "May 2026 - Aug 2026",
     imgPath: sepImg,
     imgAlt: "SEP Building",
     pageLink: "/src/content/projects/sep.html",
@@ -16,7 +16,7 @@ const workCards = [
   },
   {
     title: "OnlyLocalTickets - Fullstack Developer",
-    time: "Spring 2026",
+    time: "Jan 2026 - May 2026",
     imgPath: embedExampleImg,
     imgAlt: "OnlyLocalTickets Embed Example",
     pageLink: "/src/content/projects/onlylocaltickets.html",
@@ -24,7 +24,7 @@ const workCards = [
   },
   {
     title: "Corteva Agriscience - Data Engineering Intern",
-    time: "Summer 2025",
+    time: "Jan 2025 - May 2025",
     imgPath: cortevaLogoBasicImg,
     imgAlt: "Corteva Logo",
     pageLink: "/src/content/projects/corteva.html",
@@ -32,7 +32,7 @@ const workCards = [
   },
   {
     title: "DRB & Associates - Web Developemnt Intern",
-    time: "Summer 2024",
+    time: "Jun 2024 - Jun 2025",
     imgPath: robBellImg,
     imgAlt: "DRB & Associates Logo",
     pageLink: "/src/content/projects/drb.html",
@@ -70,7 +70,6 @@ function createCard(cardObj) {
   card.innerHTML = `
     <div class="card-header">
         <span class="left-card-header">${cardObj.title}</span>
-        <span class="right-card-header">${cardObj.time}</span>
     </div>
     <div class="card-content-container">
         <div class="card-image">
