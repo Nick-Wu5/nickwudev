@@ -13,6 +13,7 @@ function updateViewport() {
 
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
   renderer.setSize(width, height, false);
+  console.log("Updated viewport");
 
   camera.aspect = width / height;
 

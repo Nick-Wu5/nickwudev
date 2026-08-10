@@ -2,26 +2,26 @@ const container = document.querySelector(".slider-container");
 const sliderBackground = document.getElementById("slider-bg");
 const buttons = container.querySelectorAll(".slider-button");
 
-function moveSliderTo(button) {
+export function setActiveButton(button) {
+  buttons.forEach((b) => b.classList.remove("acitve"));
+  button.classList.add("active");
+
   sliderBackground.style.width = `${button.offsetWidth}px`;
   sliderBackground.style.translate = `${button.offsetLeft}px`;
 }
 
 buttons.forEach((btn) => {
   btn.addEventListener("click", () => {
-    buttons.forEach((b) => btn.classList.remove("acitve"));
-    btn.classList.add("active");
-    moveSliderTo(btn);
+    setActiveButton(btn);
   });
 });
 
 window.addEventListener("load", () => {
   const active = container.querySelector(".slider-button.active") || buttons[0];
-  active.classList.add("active");
-  moveSliderTo(active);
+  setActiveButton(active);
 });
 
 window.addEventListener("resize", () => {
   const active = container.querySelector(".slider-button.active");
-  if (active) moveSliderTo(active);
+  if (active) setActiveButton(active);
 });

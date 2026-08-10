@@ -114,7 +114,7 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
-  max-height: 65vh;
+  height: 65vh;
   overflow-y: auto;
   /* background-color: forestgreen; */
 }

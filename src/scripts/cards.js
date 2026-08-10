@@ -3,6 +3,7 @@ import embedExampleImg from "../assets/embedExample.png";
 import cortevaLogoBasicImg from "../assets/cortevaLogoBasic.png";
 import priceIsRightImg from "../assets/priceIsRight.png";
 import pacersImg from "../assets/pacersECF.jpeg";
+import robBellImg from "../assets/drrobbelltest.jpeg";
 
 const workCards = [
   {
@@ -11,6 +12,7 @@ const workCards = [
     imgPath: sepImg,
     imgAlt: "SEP Building",
     pageLink: "/src/content/projects/sep.html",
+    cardId: "sep",
   },
   {
     title: "OnlyLocalTickets - Fullstack Developer",
@@ -18,6 +20,7 @@ const workCards = [
     imgPath: embedExampleImg,
     imgAlt: "OnlyLocalTickets Embed Example",
     pageLink: "/src/content/projects/onlylocaltickets.html",
+    cardId: "onlylocaltickets",
   },
   {
     title: "Corteva Agriscience - Data Engineering Intern",
@@ -25,6 +28,15 @@ const workCards = [
     imgPath: cortevaLogoBasicImg,
     imgAlt: "Corteva Logo",
     pageLink: "/src/content/projects/corteva.html",
+    cardId: "corteva",
+  },
+  {
+    title: "DRB & Associates - Web Developemnt Intern",
+    time: "Summer 2024",
+    imgPath: robBellImg,
+    imgAlt: "DRB & Associates Logo",
+    pageLink: "/src/content/projects/drb.html",
+    cardId: "drb",
   },
 ];
 
@@ -35,6 +47,7 @@ const playCards = [
     imgPath: priceIsRightImg,
     imgAlt: "Price Is Right Pitch Deck Image",
     pageLink: "/src/content/projects/priceisright.html",
+    cardId: "priceisright",
   },
 ];
 
@@ -45,12 +58,14 @@ const meCards = [
     imgPath: pacersImg,
     imgAlt: "Pacers Image",
     pageLink: "/src/content/projects/pacers.html",
+    cardId: "pacers",
   },
 ];
 
 function createCard(cardObj) {
   var card = document.createElement("a");
   card.className = "card";
+  card.id = cardObj.cardId;
   card.href = cardObj.pageLink;
   card.innerHTML = `
     <div class="card-header">
@@ -59,30 +74,62 @@ function createCard(cardObj) {
     </div>
     <div class="card-content-container">
         <div class="card-image">
-            <img loading="lazy" src="${cardObj.imgPath}" alt="${cardObj.imgAlt}" />
+            <img id="img-${cardObj.cardId}" src="${cardObj.imgPath}" alt="${cardObj.imgAlt}" />
         </div>
     </div>
     `;
   return card;
 }
 
-function renderCards(cardList) {
-  console.log("tired to render cards");
+export function selectCategory(cardList) {
+  const imagePromises = [];
+
   var cardSection = document.getElementById("cards-section");
   cardSection.replaceChildren();
   for (const cardObj of cardList) {
     cardSection.appendChild(createCard(cardObj));
+    const imgElement = document.getElementById(`img-${cardObj.cardId}`);
+    imagePromises.push(imgElement.decode());
   }
+
+  return Promise.all(imagePromises);
+}
+
+export async function navigateCard(contentId, cardId) {
+  let cardList;
+
+  switch (contentId) {
+    case "work":
+      cardList = workCards;
+      break;
+    case "projects":
+      cardList = playCards;
+      break;
+    case "me":
+      cardList = meCards;
+      break;
+    default:
+      console.log("Something went wrong...");
+      break;
+  }
+
+  const result = await selectCategory(cardList);
+
+  var card = document.getElementById(cardId);
+  card.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
 }
 
 document.getElementById("work-button").addEventListener("click", () => {
-  renderCards(workCards);
+  selectCategory(workCards);
 });
 document.getElementById("play-button").addEventListener("click", () => {
-  renderCards(playCards);
+  selectCategory(playCards);
 });
 document.getElementById("me-button").addEventListener("click", () => {
-  renderCards(meCards);
+  selectCategory(meCards);
 });
 
-renderCards(workCards);
+selectCategory(workCards);

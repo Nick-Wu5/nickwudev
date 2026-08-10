@@ -42,7 +42,7 @@ controls.enableDamping = true;
 controls.dampingFactor = 0.03;
 controls.enablePan = false;
 controls.enableZoom = false;
-controls.autoRotate = true;
+controls.autoRotate = false;
 // controls.autoRotateSpeed = 3;
 
 controls.minPolarAngle = 1.15;

@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { camera, renderer, controls } from "./scene.js";
 import { rotate } from "three/tsl";
+import { navigateCard } from "../scripts/cards.js";
 
 // ================ Sticker Meshes ================
 
@@ -13,6 +14,7 @@ function createSticker(
   width,
   height,
   contentId,
+  cardId,
   rotation,
 ) {
   const texture = textureLoader.load(texturePath);
@@ -29,7 +31,7 @@ function createSticker(
   mesh.rotation.z = rotation;
   mesh.rotation.y = Math.PI;
   mesh.name = name;
-  mesh.userData = { contentId: contentId };
+  mesh.userData = { contentId: contentId, cardId: cardId };
   mesh.rotate;
   return mesh;
 }
@@ -42,6 +44,7 @@ const stickerConfigs = [
     width: 0.1,
     height: 0.1,
     contentId: "me",
+    cardId: "pacers",
     rotation: 0,
   },
   {
@@ -49,7 +52,8 @@ const stickerConfigs = [
     position: [0, 0.115, -0.009],
     width: 0.1,
     height: 0.08,
-    contentId: "school",
+    contentId: "me",
+    cardId: "purdue",
     rotation: 0,
   },
   {
@@ -57,7 +61,8 @@ const stickerConfigs = [
     position: [-0.0625, 0.16, -0.009],
     width: 0.105,
     height: 0.042,
-    contentId: "projects",
+    contentId: "work",
+    cardId: "drb",
     rotation: -Math.PI / 15.5,
   },
   {
@@ -66,6 +71,7 @@ const stickerConfigs = [
     width: 0.11,
     height: 0.11,
     contentId: "me",
+    cardId: "tottenham",
     rotation: 0,
   },
   {
@@ -73,16 +79,18 @@ const stickerConfigs = [
     position: [0.118, 0.07, -0.009],
     width: 0.06,
     height: 0.06,
-    contentId: "school",
+    contentId: "me",
+    cardId: "launchpad",
     rotation: 0,
   },
   {
-    path: "/macbook/stickers/launchpadStickerNew.png",
-    position: [-0.12, 0.07, -0.009],
-    width: 0.105,
-    height: 0.105,
-    contentId: "school",
-    rotation: -Math.PI / 12,
+    path: "/macbook/stickers/cortevaSticker.png",
+    position: [-0.12, 0.075, -0.009],
+    width: 0.05,
+    height: 0.05,
+    contentId: "work",
+    cardId: "corteva",
+    rotation: 0,
   },
   {
     path: "/macbook/stickers/betaSticker.png",
@@ -90,6 +98,7 @@ const stickerConfigs = [
     width: 0.075,
     height: 0.03525,
     contentId: "me",
+    cardId: "beta",
     rotation: 0,
   },
 ];
@@ -102,6 +111,7 @@ stickerConfigs.forEach((cfg) => {
       cfg.width,
       cfg.height,
       cfg.contentId,
+      cfg.cardId,
       cfg.rotation,
     ),
   );
@@ -127,7 +137,9 @@ function onPointerDown(event) {
   const intersections = raycaster.intersectObjects(stickers.children, true);
   if (intersections.length > 0) {
     const contentId = intersections[0].object.userData.contentId;
+    const cardId = intersections[0].object.userData.cardId;
     console.log(contentId);
+    navigateCard(contentId, cardId);
   }
 }
 
