@@ -3,7 +3,7 @@ const sliderBackground = document.getElementById("slider-bg");
 const buttons = container.querySelectorAll(".slider-button");
 
 export function setActiveButton(button) {
-  buttons.forEach((b) => b.classList.remove("acitve"));
+  buttons.forEach((b) => b.classList.remove("active"));
   button.classList.add("active");
 
   sliderBackground.style.width = `${button.offsetWidth}px`;
