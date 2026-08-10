@@ -2,6 +2,11 @@ import * as THREE from "three";
 import { scene, renderer, camera, controls } from "./scene.js";
 import { macbook } from "./macbook.js";
 import { stickers } from "./stickers.js";
+import {
+  checkRayIntersections,
+  getMouseVector2,
+  raycaster,
+} from "./interactions.js";
 
 // Attach the scene to the model section
 const modelContainer = document.querySelector(".model-section");
@@ -43,7 +48,7 @@ const lid = macbook.scene.children.find((child) => child.name === "lid_low001");
 // Stickers
 lid.add(stickers);
 
-// Testing functionality
+// -- Testing Positioning  --
 
 // Debug: marks the orbit/pivot point the camera targets.
 // const pivotMarker = new THREE.Mesh(
@@ -57,7 +62,8 @@ lid.add(stickers);
 // const axesHelper = new THREE.AxesHelper(0.25);
 // scene.add(axesHelper);
 
-// Conditionally render mac only on desktop
+// -- Conditionally render mac only on desktop --
+
 const isMobile = window.matchMedia("(max-width: 767px)");
 let frameId;
 let isRenderingMac = !isMobile.matches;
@@ -71,6 +77,8 @@ isMobile.addEventListener("change", (mobile) => {
     isRenderingMac = true;
   }
 });
+
+// -- Animation Loop --
 
 function animate() {
   frameId = requestAnimationFrame(animate);

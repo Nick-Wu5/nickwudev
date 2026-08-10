@@ -1,7 +1,4 @@
 import * as THREE from "three";
-import { camera, renderer, controls } from "./scene.js";
-import { rotate } from "three/tsl";
-import { navigateCard } from "../scripts/cards.js";
 
 // ================ Sticker Meshes ================
 
@@ -116,33 +113,3 @@ stickerConfigs.forEach((cfg) => {
     ),
   );
 });
-
-// ================ Interactions ================
-
-const raycaster = new THREE.Raycaster();
-renderer.domElement.addEventListener("pointerdown", onPointerDown);
-
-function onPointerDown(event) {
-  const rect = renderer.domElement.getBoundingClientRect();
-  const coords = new THREE.Vector2(
-    ((event.clientX - rect.left) / rect.width) * 2 - 1,
-    -(((event.clientY - rect.top) / rect.height) * 2 - 1),
-  );
-  raycaster.setFromCamera(coords, camera);
-
-  // Pause rotation
-  controls.autoRotate = false;
-  const restartRotation = setTimeout(resumeRotation, 10000);
-
-  const intersections = raycaster.intersectObjects(stickers.children, true);
-  if (intersections.length > 0) {
-    const contentId = intersections[0].object.userData.contentId;
-    const cardId = intersections[0].object.userData.cardId;
-    console.log(contentId);
-    navigateCard(contentId, cardId);
-  }
-}
-
-function resumeRotation() {
-  controls.autoRotate = true;
-}
