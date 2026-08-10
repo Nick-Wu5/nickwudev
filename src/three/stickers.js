@@ -28,7 +28,7 @@ function createSticker(
   mesh.rotation.z = rotation;
   mesh.rotation.y = Math.PI;
   mesh.name = name;
-  mesh.userData = { contentId: contentId, cardId: cardId };
+  mesh.userData = { contentId: contentId, cardId: cardId, isHovered: false };
   mesh.rotate;
   return mesh;
 }
@@ -110,6 +110,26 @@ stickerConfigs.forEach((cfg) => {
       cfg.contentId,
       cfg.cardId,
       cfg.rotation,
+      cfg.isHovered,
     ),
   );
 });
+
+export function stickerUpdates() {
+  const BASE_SCALE = 1;
+  const HOVER_SCALE = 1.1;
+  const EASE = 0.05;
+
+  stickers.children.forEach((sticker) => {
+    const curScale = sticker.userData.scale;
+    if (sticker.userData.isHovered) {
+      sticker.scale.setScalar(
+        THREE.MathUtils.lerp(sticker.scale.x, HOVER_SCALE, EASE),
+      );
+    } else {
+      sticker.scale.setScalar(
+        THREE.MathUtils.lerp(sticker.scale.x, BASE_SCALE, EASE),
+      );
+    }
+  });
+}

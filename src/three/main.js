@@ -1,12 +1,7 @@
 import * as THREE from "three";
 import { scene, renderer, camera, controls } from "./scene.js";
 import { macbook } from "./macbook.js";
-import { stickers } from "./stickers.js";
-import {
-  checkRayIntersections,
-  getMouseVector2,
-  raycaster,
-} from "./interactions.js";
+import { stickers, stickerUpdates } from "./stickers.js";
 
 // Attach the scene to the model section
 const modelContainer = document.querySelector(".model-section");
@@ -83,6 +78,7 @@ isMobile.addEventListener("change", (mobile) => {
 function animate() {
   frameId = requestAnimationFrame(animate);
   renderer.render(scene, camera);
+  stickerUpdates();
   controls.update();
 }
 

@@ -11,20 +11,40 @@ document.addEventListener("mousemove", onMouseMove, false);
 
 // ================ Raycasting ================
 
+let lastHoveredSticker;
+
 function onMouseMove(event) {
-  mousePointer = getMouseVector2(event, window);
+  const rect = renderer.domElement.getBoundingClientRect();
+  const mousePointer = getMouseVector2(event, rect);
 
   const getFirstValue = true;
 
-  const intersections = checkRayIntersections(
+  const intersection = checkRayIntersections(
     mousePointer,
     camera,
     raycaster,
-    scene,
-    getFirstValue,
+    stickers,
+    true,
   );
 
-  const cardList = getCardObjects(intersections);
+  if (intersection) {
+    // console.log("intersection");
+    const hoveredSticker = intersection.object;
+
+    if (lastHoveredSticker === hoveredSticker) {
+      return;
+    } else {
+      if (lastHoveredSticker) {
+        lastHoveredSticker.userData.isHovered = false;
+        lastHoveredSticker = null;
+      }
+      lastHoveredSticker = hoveredSticker;
+      hoveredSticker.userData.isHovered = true;
+    }
+  } else if (lastHoveredSticker) {
+    lastHoveredSticker.userData.isHovered = false;
+    lastHoveredSticker = null;
+  }
 }
 
 function onPointerDown(event) {
@@ -57,7 +77,7 @@ function resumeRotation() {
   controls.autoRotate = true;
 }
 
-export function getMouseVector2(event, bounds) {
+function getMouseVector2(event, bounds) {
   const mousePointer = new THREE.Vector2();
 
   mousePointer.x = ((event.clientX - bounds.left) / bounds.width) * 2 - 1;
@@ -66,7 +86,7 @@ export function getMouseVector2(event, bounds) {
   return mousePointer;
 }
 
-export function checkRayIntersections(
+function checkRayIntersections(
   mousePointer,
   camera,
   raycaster,
