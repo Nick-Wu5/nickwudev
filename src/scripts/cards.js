@@ -40,7 +40,7 @@ const workCards = [
   },
 ];
 
-const playCards = [
+const projectCards = [
   {
     title: "Price Is Right",
     time: "Spring 2026",
@@ -102,7 +102,7 @@ export async function navigateCard(contentId, cardId) {
       cardList = workCards;
       break;
     case "projects":
-      cardList = playCards;
+      cardList = projectCards;
       break;
     case "me":
       cardList = meCards;
@@ -124,8 +124,8 @@ export async function navigateCard(contentId, cardId) {
 document.getElementById("work-button").addEventListener("click", () => {
   selectCategory(workCards);
 });
-document.getElementById("play-button").addEventListener("click", () => {
-  selectCategory(playCards);
+document.getElementById("projects-button").addEventListener("click", () => {
+  selectCategory(projectCards);
 });
 document.getElementById("me-button").addEventListener("click", () => {
   selectCategory(meCards);

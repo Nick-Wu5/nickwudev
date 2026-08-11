@@ -2,6 +2,7 @@ import * as THREE from "three";
 import { camera, renderer, controls } from "./scene.js";
 import { stickers } from "./stickers.js";
 import { navigateCard } from "../scripts/cards.js";
+import { syncButton } from "../scripts/slider.js";
 
 // ================ Interactions ================
 
@@ -75,8 +76,15 @@ function onPointerDown(event) {
     const cardId = intersections[0].object.userData.cardId;
     console.log(contentId);
     navigateCard(contentId, cardId);
+    syncButton(contentId);
 
     rightColumn.classList.add("open");
+    rightColumn.addEventListener("transitionend", function handler(e) {
+      if (e.target === rightColumn) {
+        syncButton(contentId);
+        rightColumn.removeEventListener("transitionend", handler);
+      }
+    });
   }
 }
 
