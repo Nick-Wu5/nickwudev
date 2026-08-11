@@ -9,6 +9,13 @@ export const raycaster = new THREE.Raycaster();
 renderer.domElement.addEventListener("pointerdown", onPointerDown);
 document.addEventListener("mousemove", onMouseMove, false);
 
+const rightColumn = document.getElementById("right-column");
+const closeButton = document.getElementById("close-button");
+
+closeButton.addEventListener("click", () => {
+  rightColumn.classList.remove("open");
+});
+
 // ================ Raycasting ================
 
 let lastHoveredSticker;
@@ -68,6 +75,8 @@ function onPointerDown(event) {
     const cardId = intersections[0].object.userData.cardId;
     console.log(contentId);
     navigateCard(contentId, cardId);
+
+    rightColumn.classList.add("open");
   }
 }
 

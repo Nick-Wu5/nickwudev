@@ -1,4 +1,4 @@
-@media (min-width: 768px) {
+@media (min-width: 950px) {
   .container {
     padding: var(--page-padding-desktop);
     gap: var(--grid-gap-desktop-y) var(--grid-gap-desktop-x);
@@ -13,29 +13,42 @@
     align-items: center;
   }
 
-  .header-section {
-    text-align: left;
+  #close-button {
+    display: inline;
+    font-size: 1.5rem;
+    background-color: var(--page-bg);
+    border: none;
   }
 
-  .content {
-    display: grid;
+  .flex-container {
     grid-area: content;
-    grid-template-areas:
-      "title title title slider slider"
-      "model model model cards cards"
-      "model model model cards cards"
-      "model model model cards cards"
-      "callToAction callToAction callToAction cards cards";
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows:
-      auto
-      minmax(0, 1fr)
-      minmax(0, 1fr)
-      minmax(0, 1fr)
-      auto;
-    padding: var(--page-padding-desktop);
-    width: 90%;
-    justify-self: center;
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .left-column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .right-column {
+    display: flex;
+    flex: 0 0 0%;
+    flex-direction: row;
+    align-items: center;
+    transition: flex-basis 0.9s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    overflow: hidden;
+  }
+
+  .right-column.open {
+    flex-basis: 40%;
+  }
+
+  .right-column-content {
+    display: flex;
+    flex-direction: column;
   }
 
   .title-section {
@@ -50,10 +63,8 @@
     position: relative;
     overflow: hidden;
     min-height: var(--model-min-height-desktop);
-    min-width: 320px;
-    background-color: var(--model-bg);
+    min-width: var(--model-min-height-desktop);
     /* border: 2px dashed #d16b3a; */
-    z-index: 0;
   }
 
   .model-section > canvas {

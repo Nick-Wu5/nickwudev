@@ -20,13 +20,22 @@ body {
 
 .header-section {
   grid-area: header;
-  text-align: left;
+  display: flex;
   font-size: 2rem;
   color: var(--accent-color);
   margin: 0;
 }
 
-.content {
+#wuxdesign-header {
+  justify-self: flex-start;
+}
+
+#close-button {
+  display: none;
+  justify-self: flex-end;
+}
+
+.flex-container {
   display: contents;
 }
 

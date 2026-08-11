@@ -31,7 +31,7 @@ controls.target.set(0, 0.025, -0.1);
 
 const resizeObserver = new ResizeObserver(updateViewport);
 resizeObserver.observe(modelContainer);
-window.addEventListener("resize", updateViewport);
+// window.addEventListener("resize", updateViewport);
 updateViewport();
 
 // Macbook
