@@ -52,13 +52,16 @@
     display: flex;
     flex: 0 0 0%;
     flex-direction: column;
+    width: 0;
+    max-width: 100%;
+    min-width: 0;
     transition: flex-basis 0.9s cubic-bezier(0.68, -0.6, 0.32, 1.6);
     overflow: hidden;
     align-items: center;
   }
 
   .right-column.open {
-    flex-basis: 40%;
+    flex-basis: clamp(320px, 40%, 500px);
   }
 
   .title-section {
@@ -103,15 +106,22 @@
 
   .right-column-row {
     display: flex;
+    width: 100%;
+    min-width: 0;
   }
 
   .right-column-col {
     display: flex;
     flex-direction: column;
+    flex: 1 1 auto;
+    width: min(100%, 500px);
+    min-width: 0;
   }
 
   .cards-section {
     flex: 0 1 auto;
+    width: min(100%, 500px);
+    min-width: 0;
     min-height: var(--model-min-height-desktop);
     max-width: 500px;
     margin-top: 2rem;
