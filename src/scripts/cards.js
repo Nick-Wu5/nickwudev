@@ -3,7 +3,7 @@ import cortevaLogoBasicImg from "../assets/cortevaLogoBasic.png";
 import priceIsRightImg from "../assets/priceIsRight.png";
 import pacersImg from "../assets/pacersECF.jpeg";
 import robBellImg from "../assets/drrobbelltest.jpeg";
-import sepThumbnail from "../assets/sepThumbnail.png";
+import sepThumbnail from "../assets/thumbnails/sepThumbnail.png";
 
 /**
  * @typedef {Object} Card
