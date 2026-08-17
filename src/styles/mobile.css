@@ -122,9 +122,6 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
-  height: 65vh;
-  overflow-y: auto;
-  /* background-color: forestgreen; */
 }
 
 .footer-section {
@@ -134,7 +131,6 @@ body {
   text-align: left;
   height: 1.5rem;
   gap: 1.5rem;
-  /* background-color: lawngreen; */
 }
 
 .footer-section div {

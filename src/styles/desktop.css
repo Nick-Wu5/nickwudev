@@ -1,4 +1,9 @@
 @media (min-width: 950px) {
+  html,
+  body {
+    overflow: clip;
+  }
+
   .container {
     padding: var(--page-padding-desktop);
     gap: var(--grid-gap-desktop-y) var(--grid-gap-desktop-x);
@@ -122,10 +127,12 @@
     flex: 0 1 auto;
     width: min(100%, 500px);
     min-width: 0;
-    min-height: var(--model-min-height-desktop);
+    /* min-height: var(--model-min-height-desktop); */
     max-width: 500px;
     margin-top: 2rem;
     gap: 2rem;
+    height: 65vh;
+    overflow-y: auto;
   }
 
   .footer-section {
