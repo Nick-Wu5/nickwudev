@@ -32,8 +32,10 @@
   background-color: var(--accent-color);
 }
 
-.card-image > img {
+.card-image {
   padding: 40px;
+}
+
+.card-image > img {
   width: 100%;
-  height: auto;
 }

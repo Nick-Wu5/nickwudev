@@ -85,6 +85,9 @@ body {
   font-size: 2rem;
   border-style: hidden;
   background: transparent;
+  color: #070707;
+  -webkit-appearance: none;
+  appearance: none;
   z-index: 1;
 }
 
