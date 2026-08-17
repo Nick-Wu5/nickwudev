@@ -1,15 +1,26 @@
-import sepImg from "../assets/sepOutside.jpg";
 import embedExampleImg from "../assets/embedExample.png";
 import cortevaLogoBasicImg from "../assets/cortevaLogoBasic.png";
 import priceIsRightImg from "../assets/priceIsRight.png";
 import pacersImg from "../assets/pacersECF.jpeg";
 import robBellImg from "../assets/drrobbelltest.jpeg";
+import sepThumbnail from "../assets/sepThumbnail.png";
 
+/**
+ * @typedef {Object} Card
+ * @property {string} title - Display title shown on the card.
+ * @property {string} time - Time period associated with the card.
+ * @property {string} imgPath - Path or URL for the card image.
+ * @property {string} imgAlt - Alt text for the card image.
+ * @property {string} pageLink - Destination link for the card.
+ * @property {string} cardId - Unique id used for DOM lookup and navigation.
+ */
+
+/** @type {Card[]} */
 const workCards = [
   {
     title: "SEP - Software Engineering Intern",
     time: "May 2026 - Aug 2026",
-    imgPath: sepImg,
+    imgPath: sepThumbnail,
     imgAlt: "SEP Building",
     pageLink: "/src/content/projects/sep.html",
     cardId: "sep",
@@ -40,6 +51,7 @@ const workCards = [
   },
 ];
 
+/** @type {Card[]} */
 const projectCards = [
   {
     title: "Price Is Right",
@@ -51,6 +63,7 @@ const projectCards = [
   },
 ];
 
+/** @type {Card[]} */
 const meCards = [
   {
     title: "Pacers",
@@ -62,6 +75,12 @@ const meCards = [
   },
 ];
 
+/**
+ * Creates a clickable card element from card data.
+ *
+ * @param {Card} cardObj - Data used to render the card.
+ * @returns {HTMLAnchorElement} The generated anchor element for the card.
+ */
 function createCard(cardObj) {
   var card = document.createElement("a");
   card.className = "card";
@@ -80,22 +99,45 @@ function createCard(cardObj) {
   return card;
 }
 
+/**
+ * Renders a list of cards into the cards section and waits for their images to decode.
+ *
+ * @param {Card[]} cardList - Cards to render for the selected category.
+ * @returns {Promise<void[]>} Resolves when all card images finish decoding.
+ */
 export function selectCategory(cardList) {
   const imagePromises = [];
 
   var cardSection = document.getElementById("cards-section");
+
+  if (!cardSection) {
+    return Promise.resolve([]);
+  }
+
   cardSection.replaceChildren();
+
   for (const cardObj of cardList) {
     cardSection.appendChild(createCard(cardObj));
     const imgElement = document.getElementById(`img-${cardObj.cardId}`);
+    if (!(imgElement instanceof HTMLImageElement)) {
+      return Promise.resolve([]);
+    }
+
     imagePromises.push(imgElement.decode());
   }
 
   return Promise.all(imagePromises);
 }
 
+/**
+ * Selects a content category, renders its cards, and scrolls a target card into view.
+ *
+ * @param {string} contentId - Category id used to choose a card list.
+ * @param {string} cardId - Card id to scroll into view after rendering.
+ * @returns {Promise<void>} Resolves when rendering is complete and scroll is triggered.
+ */
 export async function navigateCard(contentId, cardId) {
-  let cardList;
+  let cardList = [];
 
   switch (contentId) {
     case "work":
@@ -108,26 +150,31 @@ export async function navigateCard(contentId, cardId) {
       cardList = meCards;
       break;
     default:
-      console.log("Something went wrong...");
+      cardList = workCards;
       break;
   }
 
   const result = await selectCategory(cardList);
 
   var card = document.getElementById(cardId);
-  card.scrollIntoView({
-    behavior: "smooth",
-    block: "start",
-  });
+
+  if (!card) {
+    return;
+  } else {
+    card.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
 }
 
-document.getElementById("work-button").addEventListener("click", () => {
+document.getElementById("work-button")?.addEventListener("click", () => {
   selectCategory(workCards);
 });
-document.getElementById("projects-button").addEventListener("click", () => {
+document.getElementById("projects-button")?.addEventListener("click", () => {
   selectCategory(projectCards);
 });
-document.getElementById("me-button").addEventListener("click", () => {
+document.getElementById("me-button")?.addEventListener("click", () => {
   selectCategory(meCards);
 });
 
