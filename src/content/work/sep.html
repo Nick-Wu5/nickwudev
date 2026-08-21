@@ -27,20 +27,12 @@
         </script>
       </div>
 
-      <div class="footer-section">
-        <div class="footer-link">
-          <a target="_blank" href="https://www.linkedin.com/in/nick-wu5/"
-            >LinkedIn</a
-          >
-          <i class="ph-bold ph-arrow-up-right"></i>
-        </div>
-
-        <div class="footer-link">
-          <a href="/NicholasWuResume.pdf" target="_blank" rel="noopener"
-            >Resume</a
-          >
-          <i class="ph-bold ph-arrow-up-right"></i>
-        </div>
+      <div class="footer-section" id="footer-section">
+        <script type="module">
+          import { renderFooter } from "../../scripts/subpage.js";
+          const footer = document.getElementById("footer-section");
+          footer.innerHTML = renderFooter();
+        </script>
       </div>
     </div>
   </body>

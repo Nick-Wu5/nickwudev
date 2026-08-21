@@ -114,18 +114,11 @@ export function renderBody(blocks) {
  * @returns {string}
  */
 export function renderFooter() {
-  return `<div class="footer-section">
-
+  return `
 		<div class="footer-link">
-			<a target="_blank" href="https://www.linkedin.com/in/nick-wu5/">LinkedIn</a>
-			<i class="ph-bold ph-arrow-up-right"></i>
-		</div>
-
-		<div class="footer-link">
-			<a href="/NicholasWuResume.pdf" target="_blank" rel="noopener">Resume</a>
-			<i class="ph-bold ph-arrow-up-right"></i>
-		</div>
-	</div>`;
+      <i class="ph-bold ph-arrow-circle-left"></i>
+      <a href="../../../index.html">Back Home</a>
+    </div>`;
 }
 
 /**

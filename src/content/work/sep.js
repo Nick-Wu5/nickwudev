@@ -25,15 +25,15 @@ const sep = {
       text: "I grew a ton over the summer, and a lot of that comes down to how supportive my team was about getting me involved in every area of the codebase. Whether that meant creating new endpoints in the NestJS backend for specific shipment types or restructuring the flow of critical data ingestion pipelines through new React components, I was constantly learning. Along the way, I also got exposure to several new technologies our project leaned on, including Docker, Kubernetes, Temporal, and AWS S3.",
     },
     {
-      type: "paragraph",
-      text: "My toughest technical challenge came from working in a mock server the team had built to simulate our third-party integrations without pinging the real services. My work involved debugging its 'passthrough' functionality, where you could simulate a failed request against the mock server and then a successful one against the live service. In this scenario, the mock server endpoints weren't just dummy responses. Instead,  they acted as a proxy to the real integrations. Ultimately, I traced the bug to the mock server passing 'hop-by-hop' headers into the live service requests, which caused authentication issues.",
-    },
-    {
       type: "media",
       src: sepInterns,
       alt: "SEP Interns",
       caption: "SEP Interns Group Photo",
       kind: "image",
+    },
+    {
+      type: "paragraph",
+      text: "My toughest technical challenge came from working in a mock server the team had built to simulate our third-party integrations without pinging the real services. My work involved debugging its 'passthrough' functionality, where you could simulate a failed request against the mock server and then a successful one against the live service. In this scenario, the mock server endpoints weren't just dummy responses. Instead,  they acted as a proxy to the real integrations. Ultimately, I traced the bug to the mock server passing 'hop-by-hop' headers into the live service requests, which caused authentication issues.",
     },
     {
       type: "paragraph",
