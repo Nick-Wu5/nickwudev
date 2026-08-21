@@ -28,6 +28,84 @@ body {
 .content-section {
   grid-area: content;
   justify-self: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: min(700px, 100%);
+  overflow-y: auto;
+  font-family: "Montserrat";
+}
+
+.subpage-header-top {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.subpage-header-logo {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.subpage-header-divider {
+  align-self: stretch;
+  border-left: 2px solid rgb(75, 77, 75);
+}
+
+.subpage-header-info h1 {
+  font-size: 1.75rem;
+  color: var(--card-text);
+}
+
+.subpage-header-info h2 {
+  font-size: 1.2rem;
+  font-weight: normal;
+  color: rgb(75, 77, 75);
+}
+
+.subpage-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.tag {
+  background-color: var(--accent-color);
+  color: var(--card-text);
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  font-size: 1rem;
+}
+
+.body-content {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--card-text);
+}
+
+.body-content figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.body-content figure img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.body-content figcaption {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: rgb(75, 77, 75);
 }
 
 .content-header {
