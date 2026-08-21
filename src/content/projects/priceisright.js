@@ -1,17 +1,22 @@
 import priceIsRightLogo from "../../assets/priceIsRightSquare.png";
 import priceIsRightPreview from "../../assets/priceIsRight.png";
 
-/** @type {import("../../types/types.js").SubpageData} */
+/** @type {import("../../types/types.js").Entry} */
 const priceIsRight = {
   id: "priceisright",
   kind: "project",
+  thumbnail: {
+    thumbnailSource: priceIsRightPreview,
+    thumbnailAlt: "Price Is Right Card Thumbnail",
+  },
   org: {
     name: "Personal Project",
     logoSrc: priceIsRightLogo,
     logoAlt: "Price Is Right Project Logo",
   },
   title: "Price Is Right",
-  dateRange: "Spring 2026",
+  startDate: new Date("2026-03-01"),
+  endDate: new Date("2026-03-31"),
   tags: ["React", "TypeScript", "Game Logic", "UI/UX"],
   body: [
     {

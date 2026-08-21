@@ -14,12 +14,14 @@
  */
 
 /**
- * @typedef {Object} SubpageData
+ * @typedef {Object} Entry
  * @property {string} id
  * @property {"work"|"project"} kind
+ * @property {{thumbnailSource: string, thumbnailAlt: string}} thumbnail
  * @property {{name: string, logoSrc: string, logoAlt: string}} org
  * @property {string} title
- * @property {string} dateRange
+ * @property {Date} startDate
+ * @property {Date} endDate
  * @property {string[]} tags
  * @property {Array<ParagraphBlock|MediaBlock>} body
  */

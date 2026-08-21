@@ -1,13 +1,19 @@
 import sepLogo from "../../assets/logos/sepLogo.jpeg";
 import sepInterns from "../../assets/content/sepInterns.jpeg";
+import sepThumbnail from "../../assets/thumbnails/sepThumbnail.png";
 
-/** @type {import("../../types/types.js").SubpageData} */
+/** @type {import("../../types/types.js").Entry} */
 const sep = {
   id: "sep",
   kind: "work",
+  thumbnail: {
+    thumbnailSource: sepThumbnail,
+    thumbnailAlt: "SEP Card Thumbnail",
+  },
   org: { name: "SEP", logoSrc: sepLogo, logoAlt: "SEP Logo" },
   title: "Software Engineering Intern",
-  dateRange: "May 2026 - August 2026",
+  startDate: new Date("2026-05-01"),
+  endDate: new Date("2026-08-31"),
   tags: ["React (Typescript)", "NestJS", "PostgreSQL (TypeORM), AWS S3"],
   body: [
     {

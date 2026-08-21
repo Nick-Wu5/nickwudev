@@ -1,98 +1,44 @@
-import embedExampleImg from "../assets/embedExample.png";
-import cortevaLogoBasicImg from "../assets/cortevaLogoBasic.png";
-import priceIsRightImg from "../assets/priceIsRight.png";
-import pacersImg from "../assets/pacersECF.jpeg";
-import robBellImg from "../assets/drrobbelltest.jpeg";
-import sepThumbnail from "../assets/thumbnails/sepThumbnail.png";
+/** @typedef {import("../types/types.js").Entry} Entry */
+import { compareEntriesByDateDesc } from "./dates.js";
 
-/**
- * @typedef {Object} Card
- * @property {string} title - Display title shown on the card.
- * @property {string} time - Time period associated with the card.
- * @property {string} imgPath - Path or URL for the card image.
- * @property {string} imgAlt - Alt text for the card image.
- * @property {string} pageLink - Destination link for the card.
- * @property {string} cardId - Unique id used for DOM lookup and navigation.
- */
+const workCards = Object.values(
+  /** @type {Record<string, {default: Entry}>} */ (
+    import.meta.glob("../content/work/*.js", { eager: true })
+  ),
+)
+  .map((module) => module.default)
+  .sort(compareEntriesByDateDesc);
 
-/** @type {Card[]} */
-const workCards = [
-  {
-    title: "SEP - Software Engineering Intern",
-    time: "May 2026 - Aug 2026",
-    imgPath: sepThumbnail,
-    imgAlt: "SEP Building",
-    pageLink: "/src/content/projects/sep.html",
-    cardId: "sep",
-  },
-  {
-    title: "OnlyLocalTickets - Fullstack Developer",
-    time: "Jan 2026 - May 2026",
-    imgPath: embedExampleImg,
-    imgAlt: "OnlyLocalTickets Embed Example",
-    pageLink: "/src/content/projects/onlylocaltickets.html",
-    cardId: "onlylocaltickets",
-  },
-  {
-    title: "Corteva Agriscience - Data Engineering Intern",
-    time: "Jan 2025 - May 2025",
-    imgPath: cortevaLogoBasicImg,
-    imgAlt: "Corteva Logo",
-    pageLink: "/src/content/projects/corteva.html",
-    cardId: "corteva",
-  },
-  {
-    title: "DRB & Associates - Web Developemnt Intern",
-    time: "Jun 2024 - Jun 2025",
-    imgPath: robBellImg,
-    imgAlt: "DRB & Associates Logo",
-    pageLink: "/src/content/projects/drb.html",
-    cardId: "drb",
-  },
-];
+const projectCards = Object.values(
+  /** @type {Record<string, {default: Entry}>} */ (
+    import.meta.glob("../content/projects/*.js", { eager: true })
+  ),
+)
+  .map((module) => module.default)
+  .sort(compareEntriesByDateDesc);
 
-/** @type {Card[]} */
-const projectCards = [
-  {
-    title: "Price Is Right",
-    time: "Spring 2026",
-    imgPath: priceIsRightImg,
-    imgAlt: "Price Is Right Pitch Deck Image",
-    pageLink: "/src/content/projects/priceisright.html",
-    cardId: "priceisright",
-  },
-];
-
-/** @type {Card[]} */
-const meCards = [
-  {
-    title: "Pacers",
-    time: "Spring 2026",
-    imgPath: pacersImg,
-    imgAlt: "Pacers Image",
-    pageLink: "/src/content/projects/pacers.html",
-    cardId: "pacers",
-  },
-];
+const meHTML = document.createElement("p");
+meHTML.innerHTML =
+  "Purdue Computer Science student who likes to watch Tottenham and Pacers in his free time";
 
 /**
  * Creates a clickable card element from card data.
  *
- * @param {Card} cardObj - Data used to render the card.
+ * @param {Entry} entry - Data used to render the card.
  * @returns {HTMLAnchorElement} The generated anchor element for the card.
  */
-function createCard(cardObj) {
+function createCard(entry) {
   var card = document.createElement("a");
   card.className = "card";
-  card.id = cardObj.cardId;
-  card.href = cardObj.pageLink;
+  card.id = entry.id;
+  card.href = `/src/content/${entry.kind}/${entry.id}.html`;
   card.innerHTML = `
     <div class="card-header">
-        <span class="left-card-header">${cardObj.title}</span>
+        <span class="left-card-header">${entry.org.name} - ${entry.title}</span>
     </div>
     <div class="card-content-container">
         <div class="card-image">
-            <img id="img-${cardObj.cardId}" src="${cardObj.imgPath}" alt="${cardObj.imgAlt}" />
+            <img id="img-${entry.id}" src="${entry.thumbnail.thumbnailSource}" alt="${entry.thumbnail.thumbnailAlt}" />
         </div>
     </div>
     `;
@@ -102,80 +48,76 @@ function createCard(cardObj) {
 /**
  * Renders a list of cards into the cards section and waits for their images to decode.
  *
- * @param {Card[]} cardList - Cards to render for the selected category.
- * @returns {Promise<void[]>} Resolves when all card images finish decoding.
+ * @param {"work" | "projects" | "me"} category - Cards to render for the selected category.
+ * @returns {Promise<void[]> | undefined} Resolves when all card images finish decoding.
  */
-export function selectCategory(cardList) {
-  const imagePromises = [];
-
+export function selectCategory(category) {
+  // Delete exisiting content in card section
   var cardSection = document.getElementById("cards-section");
-
   if (!cardSection) {
     return Promise.resolve([]);
   }
-
   cardSection.replaceChildren();
 
-  for (const cardObj of cardList) {
-    cardSection.appendChild(createCard(cardObj));
-    const imgElement = document.getElementById(`img-${cardObj.cardId}`);
-    if (!(imgElement instanceof HTMLImageElement)) {
-      return Promise.resolve([]);
+  // Fill card section with new content
+  if (category === "me") {
+    cardSection.appendChild(meHTML);
+  } else {
+    let cardList = workCards;
+
+    if (category === "projects") {
+      cardList = projectCards;
+    } else if (category === "work") {
+      cardList = workCards;
     }
 
-    imagePromises.push(imgElement.decode());
-  }
+    const imagePromises = [];
+    for (const cardObj of cardList) {
+      cardSection.appendChild(createCard(cardObj));
+      const imgElement = document.getElementById(`img-${cardObj.id}`);
+      if (!(imgElement instanceof HTMLImageElement)) {
+        return Promise.resolve([]);
+      }
 
-  return Promise.all(imagePromises);
+      imagePromises.push(imgElement.decode());
+    }
+
+    return Promise.all(imagePromises);
+  }
 }
 
 /**
  * Selects a content category, renders its cards, and scrolls a target card into view.
  *
- * @param {string} contentId - Category id used to choose a card list.
+ * @param {"work" | "projects" | "me"} category - Category id used to choose a card list.
  * @param {string} cardId - Card id to scroll into view after rendering.
  * @returns {Promise<void>} Resolves when rendering is complete and scroll is triggered.
  */
-export async function navigateCard(contentId, cardId) {
-  let cardList = [];
+export async function navigateCard(category, cardId) {
+  const result = await selectCategory(category);
 
-  switch (contentId) {
-    case "work":
-      cardList = workCards;
-      break;
-    case "projects":
-      cardList = projectCards;
-      break;
-    case "me":
-      cardList = meCards;
-      break;
-    default:
-      cardList = workCards;
-      break;
-  }
+  if (category != "me") {
+    var card = document.getElementById(cardId);
 
-  const result = await selectCategory(cardList);
-
-  var card = document.getElementById(cardId);
-
-  if (!card) {
-    return;
-  } else {
-    card.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+    if (!card) {
+      return;
+    } else {
+      card.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
   }
 }
 
 document.getElementById("work-button")?.addEventListener("click", () => {
-  selectCategory(workCards);
+  selectCategory("work");
 });
 document.getElementById("projects-button")?.addEventListener("click", () => {
-  selectCategory(projectCards);
+  selectCategory("projects");
 });
 document.getElementById("me-button")?.addEventListener("click", () => {
-  selectCategory(meCards);
+  selectCategory("me");
 });
 
-selectCategory(workCards);
+selectCategory("work");

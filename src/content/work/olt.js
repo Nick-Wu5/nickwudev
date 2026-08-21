@@ -1,16 +1,21 @@
 import oltLogo from "../../assets/embedExample.png";
 
-/** @type {import("../../types/types.js").SubpageData} */
+/** @type {import("../../types/types.js").Entry} */
 const onlyLocalTickets = {
   id: "onlylocaltickets",
   kind: "work",
+  thumbnail: {
+    thumbnailSource: oltLogo,
+    thumbnailAlt: "OnlyLocalTickets Card Thumbnail",
+  },
   org: {
     name: "OnlyLocalTickets",
     logoSrc: oltLogo,
     logoAlt: "OnlyLocalTickets logo",
   },
   title: "Fullstack Developer",
-  dateRange: "January 2026 - May 2026",
+  startDate: new Date("2026-01-01"),
+  endDate: new Date("2026-05-31"),
   tags: ["React", "Node.js", "PostgreSQL", "UX"],
   body: [
     {

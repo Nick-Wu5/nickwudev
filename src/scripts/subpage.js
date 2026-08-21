@@ -1,6 +1,7 @@
-/** @typedef {import("../types/types.js").SubpageData} SubpageData */
+/** @typedef {import("../types/types.js").Entry} Entry */
 /** @typedef {import("../types/types.js").ParagraphBlock} ParagraphBlock */
 /** @typedef {import("../types/types.js").MediaBlock} MediaBlock */
+import { formatDateRange } from "./dates.js";
 
 /**
  * Escapes HTML-sensitive characters so authored content (title, dates,
@@ -23,11 +24,12 @@ export function escapeHtml(value) {
  * vertical divider, title + date range, and the tag pill row underneath —
  * everything shown above the body content.
  *
- * @param {SubpageData} data
+ * @param {Entry} data
  * @returns {string}
  */
 export function renderHeader(data) {
-  const { org, title, dateRange, tags } = data;
+  const { org, title, startDate, endDate, tags } = data;
+  const dateRange = formatDateRange(startDate, endDate);
 
   const tagsHtml =
     tags && tags.length
@@ -131,9 +133,9 @@ export function renderFooter() {
  * and body blocks. Outer container/header/footer wrappers are composed
  * by the caller.
  *
- * @param {SubpageData} data
+ * @param {Entry} data
  * @returns {string}
  */
 export function renderSubpageHTML(data) {
-  return `<div class="content-section">${renderHeader(data)}${renderBody(data.body)}</div>`;
+  return `<div class="content-mount">${renderHeader(data)}${renderBody(data.body)}</div>`;
 }

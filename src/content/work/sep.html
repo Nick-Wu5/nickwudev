@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/styles/base.css" />
+    <link rel="stylesheet" href="/src/styles/page.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/bold/style.css"
+    />
+    <title>WuXDesign | SEP</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header-section">
+        <span id="wuxdesign-header">WuXDesign</span>
+      </div>
+
+      <div class="content-section" id="content-section">
+        <script type="module">
+          import data from "./sep.js";
+          import { renderHeader, renderBody } from "../../scripts/subpage.js";
+          const content = document.getElementById("content-section");
+          content.innerHTML = `${renderHeader(data)}${renderBody(data.body)}`;
+        </script>
+      </div>
+
+      <div class="footer-section">
+        <div class="footer-link">
+          <a target="_blank" href="https://www.linkedin.com/in/nick-wu5/"
+            >LinkedIn</a
+          >
+          <i class="ph-bold ph-arrow-up-right"></i>
+        </div>
+
+        <div class="footer-link">
+          <a href="/NicholasWuResume.pdf" target="_blank" rel="noopener"
+            >Resume</a
+          >
+          <i class="ph-bold ph-arrow-up-right"></i>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

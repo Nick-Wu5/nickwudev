@@ -1,17 +1,23 @@
 import cortevaLogo from "../../assets/cortevaLogoBasic.png";
 import cortevaScene from "../../assets/cortevaLogoBg.jpg";
+import cortevaThumbnail from "../../assets/thumbnails/cortevaThumbnail.png";
 
-/** @type {import("../../types/types.js").SubpageData} */
+/** @type {import("../../types/types.js").Entry} */
 const corteva = {
   id: "corteva",
   kind: "work",
+  thumbnail: {
+    thumbnailSource: cortevaThumbnail,
+    thumbnailAlt: "Corteva Card Thumbnail",
+  },
   org: {
     name: "Corteva Agriscience",
     logoSrc: cortevaLogo,
     logoAlt: "Corteva Logo",
   },
   title: "Data Engineering Intern",
-  dateRange: "January 2025 - May 2025",
+  startDate: new Date("2025-01-01"),
+  endDate: new Date("2025-05-31"),
   tags: ["Python", "SQL", "PySpark", "Data Pipelines"],
   body: [
     {

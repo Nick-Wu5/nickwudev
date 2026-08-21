@@ -1,16 +1,21 @@
 import drbLogo from "../../assets/drrobbelltest.jpeg";
 
-/** @type {import("../../types/types.js").SubpageData} */
+/** @type {import("../../types/types.js").Entry} */
 const drb = {
   id: "drb",
   kind: "work",
+  thumbnail: {
+    thumbnailSource: drbLogo,
+    thumbnailAlt: "DRB & Associates Card Thumbnail",
+  },
   org: {
     name: "DRB & Associates",
     logoSrc: drbLogo,
     logoAlt: "DRB & Associates Logo",
   },
   title: "Web Development Intern",
-  dateRange: "June 2024 - June 2025",
+  startDate: new Date("2024-06-01"),
+  endDate: new Date("2025-06-30"),
   tags: ["HTML", "CSS", "JavaScript", "Web Design"],
   body: [
     {
