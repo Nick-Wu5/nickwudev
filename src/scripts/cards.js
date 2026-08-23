@@ -31,7 +31,7 @@ function createCard(entry) {
   var card = document.createElement("a");
   card.className = "card";
   card.id = entry.id;
-  card.href = `/src/content/${entry.kind}/${entry.id}.html`;
+  card.href = `/src/content/subpage.html?id=${card.id}`;
   card.innerHTML = `
     <div class="card-header">
         <span class="left-card-header">${entry.org.name} - ${entry.title}</span>

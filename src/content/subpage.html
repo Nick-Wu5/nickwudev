@@ -10,7 +10,6 @@
       type="text/css"
       href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/bold/style.css"
     />
-    <title>WuXDesign | SEP</title>
   </head>
   <body>
     <div class="container">
@@ -20,16 +19,28 @@
 
       <div class="content-section" id="content-section">
         <script type="module">
-          import data from "./sep.js";
-          import { renderHeader, renderBody } from "../../scripts/subpage.js";
+          const params = new URLSearchParams(window.location.search);
+          const id = params.get("id");
+
+          const entry = await Object.values(
+            /** @type {Record<string, {default: Entry}>} */ (
+              import.meta.glob("../content/{projects,work}/*.js", {
+                eager: true,
+              })
+            ),
+          )
+            .map((module) => module.default)
+            .find((entry) => entry.id === id);
+          import { renderHeader, renderBody } from "../scripts/subpage.js";
+          document.title = `WuXDesign | ${entry.org.name}`;
           const content = document.getElementById("content-section");
-          content.innerHTML = `${renderHeader(data)}${renderBody(data.body)}`;
+          content.innerHTML = `${renderHeader(entry)}${renderBody(entry.body)}`;
         </script>
       </div>
 
       <div class="footer-section" id="footer-section">
         <script type="module">
-          import { renderFooter } from "../../scripts/subpage.js";
+          import { renderFooter } from "../scripts/subpage.js";
           const footer = document.getElementById("footer-section");
           footer.innerHTML = renderFooter();
         </script>
