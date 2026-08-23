@@ -75,16 +75,23 @@ function onPointerDown(event) {
     const contentId = intersections[0].object.userData.contentId;
     const cardId = intersections[0].object.userData.cardId;
     console.log(contentId);
-    navigateCard(contentId, cardId);
-    syncButton(contentId);
 
+    const panelAlreadyOpen = rightColumn.classList.contains("open");
+    const panelReady = panelAlreadyOpen
+      ? Promise.resolve()
+      : new Promise((resolve) => {
+          rightColumn.addEventListener("transitionend", function handler(e) {
+            if (e.target === rightColumn) {
+              rightColumn.removeEventListener("transitionend", handler);
+              syncButton(contentId);
+              resolve();
+            }
+          });
+        });
+
+    navigateCard(contentId, cardId, panelReady);
+    syncButton(contentId);
     rightColumn.classList.add("open");
-    rightColumn.addEventListener("transitionend", function handler(e) {
-      if (e.target === rightColumn) {
-        syncButton(contentId);
-        rightColumn.removeEventListener("transitionend", handler);
-      }
-    });
   }
 }
 

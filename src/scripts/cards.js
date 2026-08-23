@@ -1,6 +1,8 @@
 /** @typedef {import("../types/types.js").Entry} Entry */
 import { compareEntriesByDateDesc } from "./dates.js";
 
+import { syncButton } from "../scripts/slider.js";
+
 const workCards = Object.values(
   /** @type {Record<string, {default: Entry}>} */ (
     import.meta.glob("../content/work/*.js", { eager: true })
@@ -18,8 +20,7 @@ const projectCards = Object.values(
   .sort(compareEntriesByDateDesc);
 
 const meHTML = document.createElement("p");
-meHTML.innerHTML =
-  "Purdue Computer Science student who likes to watch Tottenham and Pacers in his free time";
+meHTML.innerHTML = "I'm a";
 
 /**
  * Creates a clickable card element from card data.
@@ -91,10 +92,11 @@ export function selectCategory(category) {
  *
  * @param {"work" | "projects" | "me"} category - Category id used to choose a card list.
  * @param {string} cardId - Card id to scroll into view after rendering.
+ * @param {Promise<void>} [panelReady] - Resolves once the container's layout has settled (e.g. after a CSS transition), so the scroll offset is computed against final geometry. Defaults to an already-resolved promise.
  * @returns {Promise<void>} Resolves when rendering is complete and scroll is triggered.
  */
-export async function navigateCard(category, cardId) {
-  const result = await selectCategory(category);
+export async function navigateCard(category, cardId, panelReady = Promise.resolve()) {
+  const [result] = await Promise.all([selectCategory(category), panelReady]);
 
   if (category != "me") {
     var card = document.getElementById(cardId);

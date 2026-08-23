@@ -27,7 +27,6 @@ function createSticker(
   mesh.position.set(...position);
   mesh.rotation.z = rotation;
   mesh.rotation.y = Math.PI;
-  mesh.name = name;
   mesh.userData = { contentId: contentId, cardId: cardId, isHovered: false };
   mesh.rotate;
   return mesh;
