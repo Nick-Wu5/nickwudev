@@ -127,6 +127,10 @@ body {
   gap: 1.5rem;
 }
 
+.me-content {
+  font-family: "Montserrat";
+}
+
 .footer-section {
   grid-area: footer;
   display: flex;

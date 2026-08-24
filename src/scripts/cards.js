@@ -1,7 +1,7 @@
 /** @typedef {import("../types/types.js").Entry} Entry */
+import { marked } from "marked";
 import { compareEntriesByDateDesc } from "./dates.js";
-
-import { syncButton } from "../scripts/slider.js";
+import meMarkdown from "../content/me.md?raw";
 
 const workCards = Object.values(
   /** @type {Record<string, {default: Entry}>} */ (
@@ -19,8 +19,9 @@ const projectCards = Object.values(
   .map((module) => module.default)
   .sort(compareEntriesByDateDesc);
 
-const meHTML = document.createElement("p");
-meHTML.innerHTML = "I'm a";
+const meHTML = document.createElement("div");
+meHTML.className = "me-content";
+meHTML.innerHTML = /** @type {string} */ (marked.parse(meMarkdown));
 
 /**
  * Creates a clickable card element from card data.
@@ -95,7 +96,11 @@ export function selectCategory(category) {
  * @param {Promise<void>} [panelReady] - Resolves once the container's layout has settled (e.g. after a CSS transition), so the scroll offset is computed against final geometry. Defaults to an already-resolved promise.
  * @returns {Promise<void>} Resolves when rendering is complete and scroll is triggered.
  */
-export async function navigateCard(category, cardId, panelReady = Promise.resolve()) {
+export async function navigateCard(
+  category,
+  cardId,
+  panelReady = Promise.resolve(),
+) {
   const [result] = await Promise.all([selectCategory(category), panelReady]);
 
   if (category != "me") {
