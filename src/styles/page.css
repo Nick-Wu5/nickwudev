@@ -14,6 +14,7 @@ body {
     "content"
     "footer";
   grid-template-rows: auto minmax(0, 1fr) auto;
+  min-height: 100dvh;
 }
 
 .header-section {

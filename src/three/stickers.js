@@ -36,9 +36,9 @@ export const stickers = new THREE.Group();
 const stickerConfigs = [
   {
     path: "/macbook/stickers/pacersSticker.png",
-    position: [0.11, 0.1725, -0.009],
-    width: 0.1,
-    height: 0.1,
+    position: [0.12, 0.1825, -0.009],
+    width: 0.07,
+    height: 0.07,
     contentId: "me",
     cardId: "pacers",
     rotation: 0,
@@ -57,8 +57,8 @@ const stickerConfigs = [
     position: [-0.0625, 0.16, -0.009],
     width: 0.105,
     height: 0.042,
-    contentId: "work",
-    cardId: "drb",
+    contentId: "projects",
+    cardId: "github",
     rotation: -Math.PI / 15.5,
   },
   {
@@ -96,6 +96,24 @@ const stickerConfigs = [
     contentId: "me",
     cardId: "beta",
     rotation: 0,
+  },
+  {
+    path: "/macbook/stickers/sepSticker.png",
+    position: [0.055, 0.125, -0.009],
+    width: 0.05,
+    height: 0.05,
+    contentId: "work",
+    cardId: "sep",
+    rotation: 0,
+  },
+  {
+    path: "/macbook/stickers/oltSticker.png",
+    position: [0.04, 0.186, -0.009],
+    width: 0.08,
+    height: 0.03,
+    contentId: "work",
+    cardId: "olt",
+    rotation: Math.PI / 8,
   },
 ];
 

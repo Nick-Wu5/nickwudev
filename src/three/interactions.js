@@ -58,7 +58,7 @@ function onMouseMove(event) {
 function onPointerDown(event) {
   // Pause rotation
   controls.autoRotate = false;
-  setTimeout(resumeRotation, 10000);
+  setTimeout(resumeRotation, 15000);
 
   // Find intersections
   const rect = renderer.domElement.getBoundingClientRect();
@@ -75,6 +75,11 @@ function onPointerDown(event) {
     const contentId = intersections[0].object.userData.contentId;
     const cardId = intersections[0].object.userData.cardId;
     console.log(contentId);
+
+    if (cardId === "github") {
+      window.open("https://github.com/Nick-Wu5", "_blank", "noopener");
+      return;
+    }
 
     const panelAlreadyOpen = rightColumn.classList.contains("open");
     const panelReady = panelAlreadyOpen

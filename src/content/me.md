@@ -1,4 +1,4 @@
-# Thanks for stopping by
+# Thanks for stopping by!
 
 I'm currently a student studying computer science at Purdue University. Everything I do can be summarized in the pursuit of _building something that lasts_. I believe in God, always competing, being delusionally optimistic, and finishing what I start.
 
