@@ -1,11 +1,13 @@
-import drbLogo from "../../assets/drrobbelltest.jpeg";
+import drbThumbnail from "../../assets/thumbnails/drbThumbnail.png";
+import drbLogo from "../../assets/logos/drbLogo.png";
+import drbDemo from "../../assets/content/drbDemo.gif";
 
 /** @type {import("../../types/types.js").Entry} */
 const drb = {
   id: "drb",
   kind: "work",
   thumbnail: {
-    thumbnailSource: drbLogo,
+    thumbnailSource: drbThumbnail,
     thumbnailAlt: "DRB & Associates Card Thumbnail",
   },
   org: {
@@ -14,21 +16,24 @@ const drb = {
     logoAlt: "DRB & Associates Logo",
   },
   title: "Web Development Intern",
-  startDate: new Date("2024-06-01"),
-  endDate: new Date("2025-06-30"),
-  tags: ["HTML", "CSS", "JavaScript", "Web Design"],
+  startDate: new Date("2023-06-03"),
+  endDate: new Date("2024-06-04"),
+  tags: ["WordPress", "Wondershare Filmora", "HTML/CSS"],
   body: [
     {
       type: "paragraph",
-      text: "At DRB & Associates, I supported the redesign and maintenance of web experiences used to communicate services, projects, and client information.",
+      text: "I interned under sports psychologist Dr. Rob Bell throughout high school. Over the course of the year, I worked with Dr. Bell to complete a full overhaul of his WordPress website (drrobbell.com), restructuring it to showcase his coaching services, speaking engagements, and books. The redesign focused on streamlining customer click paths to improve conversion rates, alongside an overall cleaner UI.",
+    },
+    {
+      type: "media",
+      src: drbDemo,
+      alt: "Dr. Rob Bell Hero Section",
+      caption: "drrobbell.com video hero",
+      kind: "image",
     },
     {
       type: "paragraph",
-      text: "I worked on front-end updates, improved content layouts, and learned how to balance design polish with practical implementation details in a real business setting.",
-    },
-    {
-      type: "paragraph",
-      text: "This role helped me grow comfortable translating design ideas into working web pages and understanding the value of clear, user-friendly interfaces.",
+      text: "In addition to web development, I edited his biweekly podcast, The Mental Toughness Podcast with Dr. Rob Bell, where he hosts PGA Tour winners, Olympians, and Fortune 500 leaders to discuss their stories and insights on mental toughness. After each episode was released on audio platforms for about 2,300+ listeners, I produced short-form highlight clips for his social media channels, boosting listenership 15%.",
     },
   ],
 };

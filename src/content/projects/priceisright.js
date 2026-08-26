@@ -14,7 +14,7 @@ const priceIsRight = {
     logoSrc: priceIsRightLogo,
     logoAlt: "Price Is Right Project Logo",
   },
-  title: "Price Is Right",
+  title: "Still under construction....",
   startDate: new Date("2026-03-01"),
   endDate: new Date("2026-03-31"),
   tags: ["React", "TypeScript", "Game Logic", "UI/UX"],

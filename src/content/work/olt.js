@@ -44,8 +44,8 @@ const olt = {
     {
       type: "media",
       src: oltBackendSchema,
-      alt: "Only Local Tickets data pipeline schema",
-      caption: "Data Pipeline Schema",
+      alt: "Only Local Tickets backend schema",
+      caption: "Backend Schema",
       kind: "image",
     },
     {
