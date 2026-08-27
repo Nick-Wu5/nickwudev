@@ -12,11 +12,11 @@ const priceIsRight = {
     thumbnailAlt: "Price Is Right Card Thumbnail",
   },
   org: {
-    name: "Price Is Right",
+    name: "StarkHacks Hackathon",
     logoSrc: priceIsRightLogo,
     logoAlt: "Price Is Right Project Logo",
   },
-  title: "StarkHacks Hackathon",
+  title: "Price Is Right",
   startDate: new Date("2026-04-03"),
   endDate: new Date("2026-04-29"),
   tags: [
