@@ -45,7 +45,7 @@ const trec = {
       type: "media",
       src: trecIRL,
       alt: "TREC Project On My Desk",
-      caption: "Checkout the project IRL",
+      caption: "IRL Project!",
       kind: "image",
     },
     {
