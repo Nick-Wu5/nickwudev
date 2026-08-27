@@ -63,9 +63,9 @@ const stickerConfigs = [
   },
   {
     path: "/macbook/stickers/tottenhamSticker.png",
-    position: [-0.12, 0.155, -0.009],
-    width: 0.11,
-    height: 0.11,
+    position: [-0.125, 0.16, -0.009],
+    width: 0.05,
+    height: 0.1,
     contentId: "me",
     cardId: "tottenham",
     rotation: 0,
@@ -132,6 +132,15 @@ const stickerConfigs = [
     contentId: "projects",
     cardId: "priceisright",
     rotation: Math.PI / 8,
+  },
+  {
+    path: "/macbook/stickers/trecSticker.png",
+    position: [-0.085, 0.19, -0.009],
+    width: 0.04,
+    height: 0.04,
+    contentId: "projects",
+    cardId: "trec",
+    rotation: 0,
   },
 ];
 

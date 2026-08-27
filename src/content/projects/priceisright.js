@@ -1,5 +1,5 @@
-import priceIsRightLogo from "../../assets/priceIsRightSquare.png";
-import priceIsRightPreview from "../../assets/priceIsRight.png";
+import priceIsRightLogo from "../../assets/logos/priceIsRightLogo.png";
+import priceIsRightThumbnail from "../../assets/thumbnails/priceIsRightThumbnail.png";
 import slideshow from "../../assets/content/priceisrightSlideshow.jpeg";
 import demo from "../../assets/content/priceisrightDemo.gif";
 
@@ -8,7 +8,7 @@ const priceIsRight = {
   id: "priceisright",
   kind: "project",
   thumbnail: {
-    thumbnailSource: priceIsRightPreview,
+    thumbnailSource: priceIsRightThumbnail,
     thumbnailAlt: "Price Is Right Card Thumbnail",
   },
   org: {
@@ -16,7 +16,7 @@ const priceIsRight = {
     logoSrc: priceIsRightLogo,
     logoAlt: "Price Is Right Project Logo",
   },
-  title: "Price Is Right",
+  title: "StarkHacks Hackathon",
   startDate: new Date("2026-04-03"),
   endDate: new Date("2026-04-29"),
   tags: [
