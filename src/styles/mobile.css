@@ -30,6 +30,25 @@ body {
   justify-self: flex-start;
 }
 
+#typewriter {
+  color: var(--accent-color);
+}
+
+#cursor {
+  color: var(--accent-color);
+  animation: blink 1.5s linear infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 100%;
+  }
+
+  50% {
+    opacity: 0%;
+  }
+}
+
 #close-button {
   display: none;
   justify-self: flex-end;

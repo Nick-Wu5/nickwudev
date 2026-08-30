@@ -1,23 +1,27 @@
 # Thanks for stopping by!
 
-I'm currently a student studying computer science at Purdue University. Everything I do can be summarized in the pursuit of _building something that lasts_. I believe in God, always competing, being delusionally optimistic, and finishing what I start.
+I'm a student studying computer science at Purdue University. Everything I do can be summarized in the pursuit of _building something that lasts_. I believe in God, always competing, being delusionally optimistic, and finishing what I start.
 
 ## On Campus
 
-- LaunchPad Co-President - CS/DS/AI Mentorship Program
-- Old Masters Host - Purdue Distinguished Alumni Program
-- Greek IV Chapter Ministry Leader - Bible Study Leader
-- Beta Theta Pi - A community of my closest friends
+- LaunchPad Co-President
+  - CS/DS/AI Mentorship Program
+- Old Masters Host
+  - Purdue Distinguished Alumni Program
+- Greek IV Chapter Ministry Leader
+  - Bible Study Leader
+- Beta Theta Pi
+  - A community of my closest friends
 
 ## When I'm not working...
 
 ### Creating
 
-I'm always looking for my next project! Whether technical or purely a creative outlet, I'm driven to build and always enjoy talking about new ideas. Currently, I'm in the process of creating _Two Seater_, a blind dating show where participants experience a first date on a tandem bike. More updates to come!
+I'm always looking for my next project! Whether technical or purely a creative outlet, I'm driven to build and always enjoy talking about new ideas. Currently, I'm in the process of creating _Two Seater_, a blind dating show where participants experience a first date on a tandem bike. More updates to come...
 
 ### Staying active
 
-I love to stay moving whether that means lifting, running, playing sports, or trying something new!
+I love to stay moving whether that means lifting, running, playing sports, or trying something new.
 
 ### Watching sports
 

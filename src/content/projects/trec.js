@@ -30,7 +30,7 @@ const trec = {
       src: trecPitch,
       alt: "TREC pitch deck",
       caption:
-        "Slides from the pitch (with my mentor Steven!) to Purdue Recreation",
+        "Slides from the pitch (with my mentor Steven) to Purdue Recreation",
       kind: "image",
     },
     {

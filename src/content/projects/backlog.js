@@ -22,7 +22,7 @@ const backlog = {
   body: [
     {
       type: "paragraph",
-      text: "Not all projects end in a completely finished product, and that's okay. Here are some things I've built but not enough to warrant an individual page...",
+      text: "Here are some things I've started to build but haven't been fully fleshed out...",
     },
     {
       type: "paragraph",
