@@ -34,7 +34,7 @@ const ceeps = {
     },
     {
       type: "paragraph",
-      text: 'I had fun creating this simple but meaningful project with people close to me. The site is vanilla HTML/CSS/JS on a Firebase backend, tracking individual stats like total games, win rate, and average cups hit per player. After a game wraps up, the highest-performing player (the "scorecard") submits the match stats, which updates every involved player\'s stats automatically. Every submission also requires a photo of the official physical scorecard, so results can be audited.',
+      text: 'I had fun creating this simple but meaningful project with people close to me. The site is vanilla HTML/CSS/JS using Firebase for the backend, tracking individual stats like total games, win rate, and average cups hit per player. After a game wraps up, the highest-performing player (the "scorecard") submits the match stats, which updates every involved player\'s stats automatically. Every submission also requires a photo of the official physical scorecard, so results can be audited.',
     },
     {
       type: "media",
@@ -49,7 +49,7 @@ const ceeps = {
     },
     {
       type: "paragraph",
-      text: "This wasn't the most technically involved project I've built, but it was one of the most meaningful. As I got live feedback from over 80 friends at house-wide chapter meetings, iterated on it, and then watched the new features get used the very next weekend.",
+      text: "This wasn't the most technically involved project I've built, but it was one of the most fun. As I got live feedback from over 80 friends at house-wide chapter meetings, iterated on it, and then watched the new features get used the very next weekend.",
     },
   ],
 };

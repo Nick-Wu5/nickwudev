@@ -153,7 +153,7 @@ const stickerConfigs = [
   },
   {
     path: "/macbook/stickers/ceepsSticker.png",
-    position: [-0.08, 0.085, -0.009],
+    position: [0.07, 0.07, -0.009],
     width: 0.025,
     height: 0.0375,
     contentId: "projects",
