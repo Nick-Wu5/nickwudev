@@ -81,7 +81,7 @@ const stickerConfigs = [
   },
   {
     path: "/macbook/stickers/cortevaSticker.png",
-    position: [-0.12, 0.075, -0.009],
+    position: [-0.125, 0.083, -0.009],
     width: 0.05,
     height: 0.05,
     contentId: "work",
@@ -108,7 +108,7 @@ const stickerConfigs = [
   },
   {
     path: "/macbook/stickers/oltSticker.png",
-    position: [0.04, 0.186, -0.009],
+    position: [0.041, 0.195, -0.009],
     width: 0.08,
     height: 0.03,
     contentId: "work",
@@ -117,7 +117,7 @@ const stickerConfigs = [
   },
   {
     path: "/macbook/stickers/drbSticker.png",
-    position: [-0.08, 0.035, -0.009],
+    position: [-0.073, 0.03, -0.009],
     width: 0.06,
     height: 0.06,
     contentId: "work",
@@ -135,11 +135,20 @@ const stickerConfigs = [
   },
   {
     path: "/macbook/stickers/trecSticker.png",
-    position: [-0.085, 0.19, -0.009],
+    position: [-0.085, 0.192, -0.009],
     width: 0.04,
     height: 0.04,
     contentId: "projects",
     cardId: "trec",
+    rotation: 0,
+  },
+  {
+    path: "/macbook/stickers/pursuitSticker.png",
+    position: [-0.13, 0.027, -0.009],
+    width: 0.07,
+    height: 0.05,
+    contentId: "projects",
+    cardId: "pursuit",
     rotation: 0,
   },
 ];
