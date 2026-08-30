@@ -2,6 +2,10 @@
 
 I'm a student studying computer science at Purdue University. Everything I do can be summarized in the pursuit of _building something that lasts_. I believe in God, always competing, being delusionally optimistic, and finishing what I start.
 
+![My real laptop that inspired this site's design](/computerIRL.jpeg)
+
+My real laptop that inspired this site's design
+
 ## On Campus
 
 - LaunchPad Co-President
