@@ -1,59 +1,55 @@
-import pursuitDiagram from "../../assets/content/pursuitDiagram.png";
-import pursuitSteps from "../../assets/content/pursuitSteps.png";
-import pursuitThumbnail from "../../assets/thumbnails/pursuitThumbnail.png";
-import pursuitLogo from "../../assets/logos/pursuitLogo.png";
+import ceepsThumbnail from "../../assets/thumbnails/ceepsThumbnail.png";
+import ceepsLogo from "../../assets/logos/ceepsLogo.png";
+import ceepsLeaderboard from "../../assets/content/ceepsLeaderboard.png";
+import ceepsScreens from "../../assets/content/ceepsScreens.png";
 
 /** @type {import("../../types/types.js").Entry} */
 const ceeps = {
   id: "ceeps",
   kind: "project",
   thumbnail: {
-    thumbnailSource: pursuitThumbnail,
-    thumbnailAlt: "Pursuit card thumbnail",
+    thumbnailSource: ceepsThumbnail,
+    thumbnailAlt: "Ceeps Website leaderboard screenshot",
   },
   org: {
-    name: "Pursuit",
-    logoSrc: pursuitLogo,
-    logoAlt: "Pursuit logo",
+    name: "Ceeps Website",
+    logoSrc: ceepsLogo,
+    logoAlt: "Ceeps Website logo",
   },
-  title: "Bible Verse Scanning Tool",
-  startDate: new Date("2025-05-10"),
-  endDate: new Date("2025-07-25"),
-  tags: ["Python", "OpenCV", "Google Cloud Vision API"],
+  title: "Fraternity Scoreboard",
+  startDate: new Date("2025-12-03"),
+  endDate: new Date("2026-01-31"),
+  tags: ["JavaScript", "Firebase (Firestore + Storage)", "HTML/CSS"],
   body: [
     {
       type: "paragraph",
-      text: "As a follower of Jesus, I'm always thinking about how I can continue to grow in my faith journey. A large part of that is my daily reading, where I dive into the Word and try to be intentional by underlining verses that come across as especially meaningful. Although quickly after identifying a verse I'd like to meditate on throughout the day, oftentimes my underlined text passes out of memory until I get the chance to re-read the chapter again.",
+      text: "Being involved in Greek life at Purdue has allowed me to find some of my closest friends, given me a diverse range of new experiences, and surprisingly grown my faith (talk to me about the house Bible study). There's a game that's a huge part of my house's culture, ceeps. I've come to appreciate the game and love creating memories with my friends playing every so often.",
     },
     {
       type: "media",
-      src: pursuitSteps,
-      alt: "Pictures of different pipeline stages",
-      caption: "Stages of the verse detection pipeline",
+      src: ceepsLeaderboard,
+      alt: "Ceeps Leaderboard",
+      caption: "Live Ceeps Leaderboard",
       kind: "image",
     },
     {
       type: "paragraph",
-      text: "In an effort to keep these verses front of mind and be more intentional about consistently reflecting on them, I explored the use of image processing on my annotated Bible pages. Specifically, using a multi-stage verse detection pipeline using OpenCV for image pre-processing/underline detection and the Google Cloud Vision API for OCR.",
+      text: 'I had fun creating this simple but meaningful project with people close to me. The site is vanilla HTML/CSS/JS on a Firebase backend, tracking individual stats like total games, win rate, and average cups hit per player. After a game wraps up, the highest-performing player (the "scorecard") submits the match stats, which updates every involved player\'s stats automatically. Every submission also requires a photo of the official physical scorecard, so results can be audited.',
     },
     {
       type: "media",
-      src: pursuitDiagram,
-      alt: "Pursuit pipeline overview graphic",
-      caption: "Overview of the verse detection pipeline",
+      src: ceepsScreens,
+      alt: "Ceeps Recent Games + Submission Screens",
+      caption: "Ceeps Recent Games + Submission Screens",
       kind: "image",
     },
     {
       type: "paragraph",
-      text: "Underline Detection (OpenCV - Probabilistic Hough Line Transform): First, preprocessing is performed to reduce noise and improve pixel intensity contrast. The uploaded image's color space is converted to grayscale, noise is reduced via a bilateral filter, then is binarized via adaptive thresholding. Next, morphological operations are applied to the binarized image with a wide horizontal kernel to isolate long horizontal structures and eliminate short ones (such as individual characters). Finally, a probabilistic Hough line transform is applied to the image. This returns a set of lines that are filtered for surrounding text presence, angle, and nearby line segments are merged into single underlines.",
+      text: "The leaderboard is probably the most engaging part for users as house members can see exactly how they stack up against the 145+ registered players across four member classes, sorting by any of the tracked stats and filtering by pledge class. On top of that, the site hosts the official posted rulebook and a crowdsourced Hall of Fame, where players submit pictures and write-ups of their most memorable moments.",
     },
     {
       type: "paragraph",
-      text: "Verse Detection (Google Cloud Vision - OCR): Once the underlines have been identified, the pipeline calls the Google Cloud Vision API to perform OCR on the original image within the text regions above the identified underlines. Post-processing is performed on the raw text to remove common OCR artifacts. Then, text regions are grouped into verse blocks defined by surrounding verse numbers and vertical proximity to other regions. Finally, a confidence score is calculated based on basic text characteristics including length, common words, and outlier symbols such as unnecessary punctuation.",
-    },
-    {
-      type: "paragraph",
-      text: "While this project didn't make it out of personal exploration, it was a great exercise in opening the doors to my curiosity surrounding computer vision.",
+      text: "This wasn't the most technically involved project I've built, but it was one of the most meaningful. As I got live feedback from over 80 friends at house-wide chapter meetings, iterated on it, and then watched the new features get used the very next weekend.",
     },
   ],
 };

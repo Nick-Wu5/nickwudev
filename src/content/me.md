@@ -7,7 +7,7 @@ I'm currently a student studying computer science at Purdue University. Everythi
 - LaunchPad Co-President - CS/DS/AI Mentorship Program
 - Old Masters Host - Purdue Distinguished Alumni Program
 - Greek IV Chapter Ministry Leader - Bible Study Leader
-- Beta Theta Pi Member - A community of my closest friends
+- Beta Theta Pi - A community of my closest friends
 
 ## When I'm not working...
 

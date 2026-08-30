@@ -31,6 +31,10 @@ export function formatDateRange(startDate, endDate) {
  * @returns {number}
  */
 export function compareEntriesByDateDesc(left, right) {
+  if (!!left.pinLast !== !!right.pinLast) {
+    return left.pinLast ? 1 : -1;
+  }
+
   const endDiff = right.endDate.getTime() - left.endDate.getTime();
   if (endDiff !== 0) {
     return endDiff;

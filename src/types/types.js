@@ -24,6 +24,7 @@
  * @property {Date} endDate
  * @property {string[]} tags
  * @property {Array<ParagraphBlock|MediaBlock>} body
+ * @property {boolean} [pinLast]
  */
 
 export {};

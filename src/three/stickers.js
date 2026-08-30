@@ -151,6 +151,24 @@ const stickerConfigs = [
     cardId: "pursuit",
     rotation: 0,
   },
+  {
+    path: "/macbook/stickers/ceepsSticker.png",
+    position: [-0.08, 0.085, -0.009],
+    width: 0.025,
+    height: 0.0375,
+    contentId: "projects",
+    cardId: "ceeps",
+    rotation: Math.PI / 16,
+  },
+  {
+    path: "/macbook/stickers/backlogSticker.png",
+    position: [0.05, 0.025, -0.009],
+    width: 0.05,
+    height: 0.05,
+    contentId: "projects",
+    cardId: "backlog",
+    rotation: 0,
+  },
 ];
 
 stickerConfigs.forEach((cfg) => {
