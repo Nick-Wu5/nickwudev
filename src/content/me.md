@@ -10,6 +10,7 @@ My real laptop that inspired this site's design
 
 - LaunchPad Co-President
   - CS/DS/AI Mentorship Program
+  - [Our cool website](https://www.launchpadpurdue.com/)
 - Old Masters Host
   - Purdue Distinguished Alumni Program
 - Greek IV Chapter Ministry Leader
