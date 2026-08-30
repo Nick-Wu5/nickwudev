@@ -98,7 +98,7 @@ const stickerConfigs = [
     rotation: 0,
   },
   {
-    path: "/macbook/stickers/sepSticker.png",
+    path: "/macbook/stickers/sepStickerNew.png",
     position: [0.055, 0.125, -0.009],
     width: 0.05,
     height: 0.05,
