@@ -33,7 +33,7 @@ const drb = {
     },
     {
       type: "paragraph",
-      text: "In addition to web development, I edited his biweekly podcast, The Mental Toughness Podcast with Dr. Rob Bell, where he hosts PGA Tour winners, Olympians, and Fortune 500 leaders to discuss their stories and insights on mental toughness. After each episode was released on audio platforms for about 2,300+ listeners, I produced short-form highlight clips for his social media channels, boosting listenership 15%.",
+      text: "In addition to web development, I edited his biweekly podcast, The Mental Toughness Podcast with Dr. Rob Bell, where he hosts PGA Tour winners, Olympians, and Fortune 500 leaders to discuss their stories and insights on mental toughness. After each episode was released on audio platforms for about 3,800+ listeners, I produced short-form highlight clips for his social media channels, boosting listenership 15%.",
     },
   ],
 };
