@@ -2,6 +2,9 @@ import * as THREE from "three";
 import { scene, renderer, camera, controls } from "./scene.js";
 import { macbook } from "./macbook.js";
 import { stickers, stickerUpdates } from "./stickers.js";
+import { inject } from "@vercel/analytics";
+
+inject();
 
 // Attach the scene to the model section
 const modelContainer = document.querySelector(".model-section");
