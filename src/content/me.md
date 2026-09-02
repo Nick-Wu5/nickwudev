@@ -22,7 +22,7 @@ My real laptop that inspired this site's design
 
 ### Creating
 
-I'm always looking for my next project! Whether technical or purely a creative outlet, I'm driven to build and always enjoy talking about new ideas. Currently, I'm in the process of creating _Two Seater_, a blind dating show where participants experience a first date on a tandem bike. More updates to come...
+I'm always looking for my next project! Whether technical or purely a creative outlet, I'm driven to build and always enjoy talking about new ideas. More updates to come!
 
 ### Staying active
 
