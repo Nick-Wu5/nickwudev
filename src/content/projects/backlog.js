@@ -1,5 +1,5 @@
 import backlogThumbnail from "../../assets/thumbnails/backlogThumbnail.png";
-import backlogLogo from "../../../public/macbook/stickers/backlogSticker.png";
+import backlogLogo from "../../assets/content/backlogSticker.png";
 
 /** @type {import("../../types/types.js").Entry} */
 const backlog = {
