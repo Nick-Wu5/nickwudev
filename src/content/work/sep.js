@@ -24,7 +24,7 @@ const sep = {
   body: [
     {
       type: "paragraph",
-      text: "SEP is a software consultancy in the Midwest, primarily contracting with corporations across industries like life sciences, consumer & industrial IoT, agriculture, and aviation. During my internship, I worked with a tight-knit team of six talented engineers building a modern web platform for a Fortune 500 pharmaceutical client. The platform managed shipments worth tens of millions of dollars in imports and exports through U.S. Foreign Trade Zones, built in close partnership with U.S. Customs and Border Protection.",
+      text: "SEP is a software consultancy in the Midwest, primarily contracting with corporations across industries like life sciences, consumer & industrial IoT, agriculture, and aviation. During my internship, I worked with a tight-knit team of six talented engineers building a modern web platform for a Fortune 500 pharmaceutical client. The platform managed shipments worth hundreds of millions of dollars in imports and exports through U.S. Foreign Trade Zones, built in close partnership with U.S. Customs and Border Protection.",
     },
     {
       type: "paragraph",
